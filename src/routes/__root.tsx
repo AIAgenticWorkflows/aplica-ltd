@@ -77,23 +77,45 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Aplica — AI Tools for Everyday Decisions" },
+      {
+        name: "description",
+        content:
+          "Aplica builds thoughtful, privacy-first AI tools for short term rentals, travel and services — helping people make everyday decisions easier and smarter.",
+      },
+      { name: "author", content: "Aplica Ltd" },
+      { property: "og:site_name", content: "Aplica" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Aplica Ltd",
+          alternateName: "Aplica",
+          url: "https://www.aplica.biz/",
+          logo: "https://www.aplica.biz/images/aplica-logo.png",
+          description:
+            "Aplica designs privacy-first AI tools that make everyday decisions easier, starting with short term rentals, travel and services.",
+          sameAs: ["https://www.linkedin.com/company/aplica-ltd/"],
+        }),
+      },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
