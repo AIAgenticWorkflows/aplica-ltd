@@ -6,17 +6,17 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Aplica — AI Tools for Everyday Decisions" },
+      { title: "Custom solutions, built around your needs" },
       {
         name: "description",
         content:
-          "Aplica designs privacy-first AI tools for short term rentals, travel and services. Lean experiments, thoughtful design, decisions made easier.",
+          "We design and build digital solutions tailored to your business. With product expertise, engineering experience, and AI capabilities, we help you solve problems faster and create new opportunities.",
       },
-      { property: "og:title", content: "Aplica — AI Tools for Everyday Decisions" },
+      { property: "og:title", content: "Custom solutions, built around your needs" },
       {
         property: "og:description",
         content:
-          "Privacy-first AI tools for short term rentals, travel and services, built lean and designed to make decisions easier.",
+          "We design and build digital solutions tailored to your business. With product expertise, engineering experience, and AI capabilities, we help you solve problems faster and create new opportunities.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
@@ -34,15 +34,15 @@ export const Route = createFileRoute("/")({
               name: "What does Aplica do?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Aplica builds AI-powered tools that help people and businesses make everyday decisions, focused on short term rentals, travel planning and finding the right services.",
+                text: "Aplica designs and builds custom digital solutions tailored to your business. We bring together product expertise, engineering experience and AI capabilities to help you solve problems faster and create new opportunities.",
               },
             },
             {
               "@type": "Question",
-              name: "Is Aplica's AI privacy-aware?",
+              name: "How does Aplica work with clients?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Yes. Aplica follows a privacy-first approach with transparent, ethical practices across every product it builds.",
+                text: "We start by understanding your challenge, then design and build a focused solution that fits your needs. Every project combines thoughtful design, practical engineering and AI where it adds real value.",
               },
             },
             {
@@ -110,12 +110,12 @@ function Index() {
           <div>
             <span className="eyebrow">Aplica Ltd</span>
             <h1 className="mt-4 text-4xl leading-tight text-deep sm:text-5xl md:text-6xl">
-              AI-powered tools for everyday decisions
+              Custom solutions, built around your needs
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              We design thoughtful AI tools that make decisions easier and smarter. Starting with
-              short term rentals, travel and services — building lean, experimenting fast, and
-              solving problems that matter.
+              We design and build digital solutions tailored to your business. With product
+              expertise, engineering experience, and AI capabilities, we help you solve problems
+              faster and create new opportunities.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/work" className="btn-primary">
