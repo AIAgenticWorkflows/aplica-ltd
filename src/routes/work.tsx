@@ -5,13 +5,13 @@ export const Route = createFileRoute("/work")({
   component: WorkPage,
   head: () => ({
     meta: [
-      { title: "Our Work : Custom Solutions by Aplica" },
+      { title: "Our Work — Custom Solutions by Aplica" },
       {
         name: "description",
         content:
           "Explore Aplica's solutions: corporate website design, AI discovery sessions and short term rental intelligence.",
       },
-      { property: "og:title", content: "Our Work : Custom Solutions by Aplica" },
+      { property: "og:title", content: "Our Work — Custom Solutions by Aplica" },
       {
         property: "og:description",
         content:
@@ -49,14 +49,14 @@ const projects = [
   },
   {
     title: "Short Term Rental Intelligence",
-    body: "AI powered tools for short term rental hosts to manage bookings, automate guest communication and maximise revenue while keeping guest experience exceptional.",
+    body: "AI-powered tools for short term rental hosts to manage bookings, automate guest communication and maximise revenue while keeping guest experience exceptional.",
     tags: ["Guest Automation", "Revenue Optimisation"],
     status: "Available Now",
     launch: "Active",
   },
   {
     title: "Client Discovery Sessions",
-    body: "Interactive, hands on consulting workshops to evaluate your existing operational processes and systematically identify prime opportunities for custom AI automation.",
+    body: "Interactive, hands-on consulting workshops to evaluate your existing operational processes and systematically identify prime opportunities for custom AI automation.",
     tags: ["AI Consulting", "Process Automation", "Digital Strategy"],
     status: "Available Now",
     launch: "Active",
@@ -107,7 +107,7 @@ function WorkPage() {
           <h2 className="text-3xl text-deep">Want to shape these ideas?</h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
             We're looking for early testers, partners and collaborators who want to help build the
-            future of AI assisted decision making.
+            future of AI-assisted decision making.
           </p>
           <Link to="/collaborate" className="btn-primary mt-6">
             Get involved

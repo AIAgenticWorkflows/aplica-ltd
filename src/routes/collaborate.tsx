@@ -5,13 +5,13 @@ export const Route = createFileRoute("/collaborate")({
   component: CollaboratePage,
   head: () => ({
     meta: [
-      { title: "Collaborate with Aplica : Partners & Early Testers" },
+      { title: "Collaborate with Aplica — Partners & Early Testers" },
       {
         name: "description",
         content:
-          "Partner with Aplica, join as an early tester, or share ideas. We'd love to hear from anyone building the future of AI assisted decisions.",
+          "Partner with Aplica, join as an early tester, or share ideas. We'd love to hear from anyone building the future of AI-assisted decisions.",
       },
-      { property: "og:title", content: "Collaborate with Aplica : Partners & Early Testers" },
+      { property: "og:title", content: "Collaborate with Aplica — Partners & Early Testers" },
       {
         property: "og:description",
         content:
@@ -46,7 +46,7 @@ const audiences = [
   },
   {
     title: "Idea Contributors",
-    body: "Creative thinkers with insights about AI applications and real world problem solving.",
+    body: "Creative thinkers with insights about AI applications and real-world problem solving.",
   },
 ];
 
