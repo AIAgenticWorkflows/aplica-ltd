@@ -5,17 +5,17 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "About Aplica — Privacy First AI Company" },
+      { title: "About Aplica — Privacy-First AI Company" },
       {
         name: "description",
         content:
-          "Aplica is an early stage company exploring how automation and agent based AI can bring real value to businesses and individuals, with a global mindset.",
+          "Aplica is an early-stage company exploring how automation and agent-based AI can bring real value to businesses and individuals, with a global mindset.",
       },
-      { property: "og:title", content: "About Aplica — Privacy First AI Company" },
+      { property: "og:title", content: "About Aplica — Privacy-First AI Company" },
       {
         property: "og:description",
         content:
-          "Our story, our values and where we're heading: building lean, privacy first AI tools that amplify human decision making.",
+          "Our story, our values and where we're heading: building lean, privacy-first AI tools that amplify human decision-making.",
       },
       { property: "og:url", content: "/about" },
       { property: "og:type", content: "website" },
@@ -51,7 +51,7 @@ const values = [
   },
   {
     title: "Integrity",
-    body: "Privacy first AI with transparent, ethical practices and responsible development.",
+    body: "Privacy-first AI with transparent, ethical practices and responsible development.",
   },
 ];
 
@@ -70,8 +70,8 @@ function AboutPage() {
             <h2 className="text-2xl text-deep">Our story</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Aplica was born from a simple observation: people make countless decisions every day,
-              and technology should make those decisions easier, not harder. We're an early stage
-              company exploring how automation and agent based AI can bring real value to businesses
+              and technology should make those decisions easier, not harder. We're an early-stage
+              company exploring how automation and agent-based AI can bring real value to businesses
               and individuals.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -85,7 +85,7 @@ function AboutPage() {
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               We're building more than tools — we're creating a new way for people to interact with
               AI that feels natural, trustworthy and genuinely helpful. Our vision is a world where
-              technology amplifies human decision making rather than replacing it.
+              technology amplifies human decision-making rather than replacing it.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               While we're just getting started, we build with a global mindset, because the best

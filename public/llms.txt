@@ -1,14 +1,14 @@
 # Aplica Ltd
 
-> Aplica designs thoughtful, privacy first AI tools that make everyday decisions easier and smarter — starting with short term rentals, travel and services.
+> Aplica designs thoughtful, privacy-first AI tools that make everyday decisions easier and smarter — starting with short term rentals, travel and services.
 
-Aplica is an early stage company exploring how automation and agent based AI can bring real value to businesses and individuals. We build lean, experiment fast, and focus on problems that matter. Our principles are simplicity, usefulness, curiosity and integrity.
+Aplica is an early-stage company exploring how automation and agent-based AI can bring real value to businesses and individuals. We build lean, experiment fast, and focus on problems that matter. Our principles are simplicity, usefulness, curiosity and integrity.
 
 ## Pages
 
 - [Home](/): Mission, guiding principles and current focus areas.
 - [Our Work](/work): Prototypes — Service Matchmaker, Short Term Rental Intelligence, Intelligent Travel Planner.
-- [About](/about): Company story, values and long term vision.
+- [About](/about): Company story, values and long-term vision.
 - [Collaborate](/collaborate): How to partner, test early prototypes or contribute ideas.
 
 ## Contact

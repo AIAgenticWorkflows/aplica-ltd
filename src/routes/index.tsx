@@ -63,7 +63,7 @@ export const Route = createFileRoute("/")({
 const principles = [
   {
     title: "Simplicity",
-    body: "Clear, intuitive tools that remove complexity from decision making.",
+    body: "Clear, intuitive tools that remove complexity from decision-making.",
   },
   {
     title: "Usefulness",
@@ -75,14 +75,14 @@ const principles = [
   },
   {
     title: "Integrity",
-    body: "Privacy first AI and transparent, ethical practices.",
+    body: "Privacy-first AI and transparent, ethical practices.",
   },
 ];
 
 const focus = [
   {
     title: "Building Corporate Websites",
-    body: "Designing and building high performance, professional websites tailored to represent your business.",
+    body: "Designing and building high-performance, professional websites tailored to represent your business.",
   },
   {
     title: "Short Term Rental Intelligence",
