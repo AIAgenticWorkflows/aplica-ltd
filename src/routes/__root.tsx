@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aplica — AI Tools for Everyday Decisions" },
+      { title: "Aplica: AI Tools for Everyday Decisions" },
       {
         name: "description",
         content:
-          "Aplica builds thoughtful, privacy-first AI tools for short term rentals, travel and services — helping people make everyday decisions easier and smarter.",
+          "Aplica builds thoughtful, privacy-first AI tools for short term rentals, travel and services, helping people make everyday decisions easier and smarter.",
       },
       { name: "author", content: "Aplica Ltd" },
       { property: "og:site_name", content: "Aplica" },

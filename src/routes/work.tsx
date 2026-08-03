@@ -5,13 +5,13 @@ export const Route = createFileRoute("/work")({
   component: WorkPage,
   head: () => ({
     meta: [
-      { title: "Our Work — Custom Solutions by Aplica" },
+      { title: "Our Work: Custom Solutions by Aplica" },
       {
         name: "description",
         content:
           "Explore Aplica's solutions: corporate website design, AI discovery sessions and short term rental intelligence.",
       },
-      { property: "og:title", content: "Our Work — Custom Solutions by Aplica" },
+      { property: "og:title", content: "Our Work: Custom Solutions by Aplica" },
       {
         property: "og:description",
         content:
