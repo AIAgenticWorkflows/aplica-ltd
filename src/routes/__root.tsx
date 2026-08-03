@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aplica — AI Tools for Everyday Decisions" },
+      { title: "Aplica: AI Tools for Everyday Decisions" },
       {
         name: "description",
         content:
-          "Aplica builds thoughtful, privacy-first AI tools for short term rentals, travel and services — helping people make everyday decisions easier and smarter.",
+          "Aplica builds custom solutions, built around your needs, starting with short term rentals, travel and services.",
       },
       { name: "author", content: "Aplica Ltd" },
       { property: "og:site_name", content: "Aplica" },
@@ -109,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           url: "https://www.aplica.biz/",
           logo: "https://www.aplica.biz/images/aplica-logo.png",
           description:
-            "Aplica designs privacy-first AI tools that make everyday decisions easier, starting with short term rentals, travel and services.",
+            "Aplica designs custom solutions, built around your needs, starting with short term rentals, travel and services.",
           sameAs: ["https://www.linkedin.com/company/aplica-ltd/"],
         }),
       },
