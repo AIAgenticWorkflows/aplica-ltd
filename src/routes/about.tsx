@@ -5,17 +5,17 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "About Aplica, a privacy-first AI company" },
+      { title: "About Aplica: Custom solutions, built around your needs" },
       {
         name: "description",
         content:
           "Aplica is an early-stage company exploring how automation and agent-based AI can bring real value to businesses and individuals, with a global mindset.",
       },
-      { property: "og:title", content: "About Aplica, a privacy-first AI company" },
+      { property: "og:title", content: "About Aplica: Custom solutions, built around your needs" },
       {
         property: "og:description",
         content:
-          "Our story, our values and where we're heading: building lean, privacy-first AI tools that amplify human decision-making.",
+          "Our story, our values and where we're heading: building lean, custom solutions, built around your needs.",
       },
       { property: "og:url", content: "/about" },
       { property: "og:type", content: "website" },
