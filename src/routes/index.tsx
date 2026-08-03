@@ -110,12 +110,12 @@ function Index() {
           <div>
             <span className="eyebrow">Aplica Ltd</span>
             <h1 className="mt-4 text-4xl leading-tight text-deep sm:text-5xl md:text-6xl">
-              AI-powered tools for everyday decisions
+              Custom solutions, built around your needs
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              We design thoughtful AI tools that make decisions easier and smarter. Starting with
-              short term rentals, travel and services — building lean, experimenting fast, and
-              solving problems that matter.
+              We design and build digital solutions tailored to your business. With product
+              expertise, engineering experience, and AI capabilities, we help you solve problems
+              faster and create new opportunities.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/work" className="btn-primary">
