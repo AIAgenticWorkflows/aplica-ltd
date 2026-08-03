@@ -6,17 +6,17 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Aplica — AI Tools for Everyday Decisions" },
+      { title: "Custom solutions, built around your needs" },
       {
         name: "description",
         content:
-          "Aplica designs privacy-first AI tools for short term rentals, travel and services. Lean experiments, thoughtful design, decisions made easier.",
+          "We design and build digital solutions tailored to your business. With product expertise, engineering experience, and AI capabilities, we help you solve problems faster and create new opportunities.",
       },
-      { property: "og:title", content: "Aplica — AI Tools for Everyday Decisions" },
+      { property: "og:title", content: "Custom solutions, built around your needs" },
       {
         property: "og:description",
         content:
-          "Privacy-first AI tools for short term rentals, travel and services, built lean and designed to make decisions easier.",
+          "We design and build digital solutions tailored to your business. With product expertise, engineering experience, and AI capabilities, we help you solve problems faster and create new opportunities.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
