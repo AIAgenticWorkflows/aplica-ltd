@@ -5,13 +5,13 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "About Aplica — Privacy First AI Company" },
+      { title: "About Aplica : Privacy First AI Company" },
       {
         name: "description",
         content:
           "Aplica is an early stage company exploring how automation and agent based AI can bring real value to businesses and individuals, with a global mindset.",
       },
-      { property: "og:title", content: "About Aplica — Privacy First AI Company" },
+      { property: "og:title", content: "About Aplica : Privacy First AI Company" },
       {
         property: "og:description",
         content:
@@ -75,7 +75,7 @@ function AboutPage() {
               and individuals.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              We started with practical use cases in real estate, shopping, tourism and services —
+              We started with practical use cases in real estate, shopping, tourism and services,
               areas where good decisions have real impact. Our approach is deliberate: build lean,
               experiment fast, and focus on problems that actually matter.
             </p>
@@ -83,7 +83,7 @@ function AboutPage() {
           <article className="surface-card p-8">
             <h2 className="text-2xl text-deep">Looking forward</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              We're building more than tools — we're creating a new way for people to interact with
+              We're building more than tools, we're creating a new way for people to interact with
               AI that feels natural, trustworthy and genuinely helpful. Our vision is a world where
               technology amplifies human decision making rather than replacing it.
             </p>
