@@ -10,13 +10,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "We design and build digital solutions tailored to your business. With product expertise, engineering experience and AI capabilities, we help you solve problems faster and create new opportunities.",
+          "With product expertise, engineering expertise and AI capabilities, we help you solve problems faster and create new opportunities.",
       },
       { property: "og:title", content: "Custom solutions, built around your needs" },
       {
         property: "og:description",
         content:
-          "We design and build digital solutions tailored to your business. With product expertise, engineering experience and AI capabilities, we help you solve problems faster and create new opportunities.",
+          "With product expertise, engineering expertise and AI capabilities, we help you solve problems faster and create new opportunities.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
               name: "What does Aplica do?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Aplica designs and builds custom digital solutions tailored to your business. We bring together product expertise, engineering experience and AI capabilities to help you solve problems faster and create new opportunities.",
+                text: "Aplica brings together product expertise, engineering expertise and AI capabilities to help you solve problems faster and create new opportunities.",
               },
             },
             {
@@ -113,9 +113,8 @@ function Index() {
               Custom solutions, built around your needs
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              We design and build digital solutions tailored to your business. With product
-              expertise, engineering experience and AI capabilities, we help you solve problems
-              faster and create new opportunities.
+              With product expertise, engineering expertise and AI capabilities, we help you solve
+              problems faster and create new opportunities.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/work" className="btn-primary">
@@ -128,10 +127,7 @@ function Index() {
           </div>
           <div className="flex justify-center">
             <div className="relative">
-              <div
-                aria-hidden
-                className="absolute -inset-8 rounded-full bg-accent/50 blur-3xl"
-              />
+              <div aria-hidden className="absolute -inset-8 rounded-full bg-accent/50 blur-3xl" />
               <img
                 src={logo}
                 alt="Aplica interlocking circular logo mark"
@@ -151,7 +147,7 @@ function Index() {
             Turning promising ideas into reliable tools
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
-            We're not here to chase trends. We build lean, experiment fast, and focus on solving
+            We're not here to chase trends. We build lean, experiment fast and focus on solving
             problems that matter.
           </p>
         </div>

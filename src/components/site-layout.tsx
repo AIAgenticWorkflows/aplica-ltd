@@ -76,7 +76,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <span className="font-display text-xl text-deep">Aplica</span>
             </div>
             <p className="mt-3 max-w-xs text-sm text-muted-foreground">
-              Thoughtful, privacy-aware AI tools that make everyday decisions easier.
+              Thoughtful AI tools that make everyday decisions easier.
             </p>
           </div>
           <div>
