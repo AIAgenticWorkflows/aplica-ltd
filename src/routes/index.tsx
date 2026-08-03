@@ -10,13 +10,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "We design and build digital solutions tailored to your business. With product expertise, engineering experience, and AI capabilities, we help you solve problems faster and create new opportunities.",
+          "We design and build digital solutions tailored to your business. With product expertise, engineering experience and AI capabilities, we help you solve problems faster and create new opportunities.",
       },
       { property: "og:title", content: "Custom solutions, built around your needs" },
       {
         property: "og:description",
         content:
-          "We design and build digital solutions tailored to your business. With product expertise, engineering experience, and AI capabilities, we help you solve problems faster and create new opportunities.",
+          "We design and build digital solutions tailored to your business. With product expertise, engineering experience and AI capabilities, we help you solve problems faster and create new opportunities.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
@@ -81,16 +81,16 @@ const principles = [
 
 const focus = [
   {
-    title: "Service Matchmaker",
-    body: "Connect with the right professionals based on needs, location, budget and quality.",
+    title: "Building Corporate Websites",
+    body: "Designing and building high-performance, professional websites tailored to represent your business.",
   },
   {
     title: "Short Term Rental Intelligence",
-    body: "Dynamic pricing, guest automation and revenue optimisation for hosts.",
+    body: "Guest automation and revenue optimisation for hosts.",
   },
   {
-    title: "Intelligent Travel Planner",
-    body: "Personalised itineraries shaped by interests, budget, weather and live conditions.",
+    title: "Client Discovery Sessions",
+    body: "Collaborative workshops to explore and identify practical AI automation opportunities for your operations.",
   },
 ];
 
@@ -114,7 +114,7 @@ function Index() {
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
               We design and build digital solutions tailored to your business. With product
-              expertise, engineering experience, and AI capabilities, we help you solve problems
+              expertise, engineering experience and AI capabilities, we help you solve problems
               faster and create new opportunities.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -152,8 +152,7 @@ function Index() {
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
             We're not here to chase trends. We build lean, experiment fast, and focus on solving
-            problems that matter — backed by thoughtful design, privacy-aware AI and continuous
-            learning.
+            problems that matter.
           </p>
         </div>
       </section>
