@@ -5,17 +5,17 @@ export const Route = createFileRoute("/work")({
   component: WorkPage,
   head: () => ({
     meta: [
-      { title: "Our Work — AI Prototypes by Aplica" },
+      { title: "Our Work — Custom Solutions by Aplica" },
       {
         name: "description",
         content:
-          "Explore Aplica's AI prototypes: a service matchmaker, short term rental intelligence for hosts, and an intelligent travel planner.",
+          "Explore Aplica's solutions: corporate website design, AI discovery sessions and short term rental intelligence.",
       },
-      { property: "og:title", content: "Our Work — AI Prototypes by Aplica" },
+      { property: "og:title", content: "Our Work — Custom Solutions by Aplica" },
       {
         property: "og:description",
         content:
-          "Early experiments exploring how AI can make everyday decisions smarter: service matching, rental intelligence and travel planning.",
+          "Explore how we build tailored digital solutions and identify opportunities to streamline business with custom websites and AI.",
       },
       { property: "og:url", content: "/work" },
       { property: "og:type", content: "website" },
@@ -29,9 +29,9 @@ export const Route = createFileRoute("/work")({
           "@type": "ItemList",
           name: "Aplica projects",
           itemListElement: [
-            "Service Matchmaker",
+            "Building Corporate Websites",
             "Short Term Rental Intelligence",
-            "Intelligent Travel Planner",
+            "Client Discovery Sessions",
           ].map((name, i) => ({ "@type": "ListItem", position: i + 1, name })),
         }),
       },
@@ -41,25 +41,25 @@ export const Route = createFileRoute("/work")({
 
 const projects = [
   {
-    title: "Service Matchmaker",
-    body: "Connect with the right professionals and services based on your specific needs, location, budget and quality requirements.",
-    tags: ["Professional Matching", "Quality Scoring"],
-    status: "Early Testing",
-    launch: "Q2 2025",
+    title: "Building Corporate Websites",
+    body: "We design and build fast, responsive, and beautifully structured corporate websites. Crafted to deliver professional aesthetics and premium user experiences tailored precisely to your brand and business objectives.",
+    tags: ["Web Engineering", "UI/UX Design", "Custom Solutions"],
+    status: "Available Now",
+    launch: "Active",
   },
   {
     title: "Short Term Rental Intelligence",
-    body: "AI-powered tools for short term rental hosts to optimise pricing, manage bookings, automate guest communication and maximise revenue while keeping guest experience exceptional.",
-    tags: ["Dynamic Pricing", "Guest Automation", "Revenue Optimisation"],
+    body: "AI-powered tools for short term rental hosts to manage bookings, automate guest communication and maximise revenue while keeping guest experience exceptional.",
+    tags: ["Guest Automation", "Revenue Optimisation"],
     status: "Early Prototype",
     launch: "Q2 2025",
   },
   {
-    title: "Intelligent Travel Planner",
-    body: "AI-powered travel planning that considers your interests, budget, weather, local events and real-time conditions to create personalised itineraries.",
-    tags: ["Route Optimisation", "Local Insights", "Dynamic Planning"],
-    status: "Concept Development",
-    launch: "Q2 2026",
+    title: "Client Discovery Sessions",
+    body: "Interactive, hands-on consulting workshops to evaluate your existing operational processes and systematically identify prime opportunities for custom AI automation.",
+    tags: ["AI Consulting", "Process Automation", "Digital Strategy"],
+    status: "Available Now",
+    launch: "Active",
   },
 ];
 
@@ -72,8 +72,7 @@ function WorkPage() {
           What we're working on
         </h1>
         <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-          Early experiments and prototypes exploring how AI can make everyday decisions smarter and
-          easier.
+          Explore our tailored services and early experiments designed to solve problems faster and create new business opportunities.
         </p>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
