@@ -51,8 +51,8 @@ const projects = [
     title: "Short Term Rental Intelligence",
     body: "AI-powered tools for short term rental hosts to manage bookings, automate guest communication and maximise revenue while keeping guest experience exceptional.",
     tags: ["Guest Automation", "Revenue Optimisation"],
-    status: "Early Prototype",
-    launch: "Q2 2025",
+    status: "Available Now",
+    launch: "Active",
   },
   {
     title: "Client Discovery Sessions",
