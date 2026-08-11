@@ -68,8 +68,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       <main>{children}</main>
 
-      <footer className="mt-24 border-t border-border bg-card">
-        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:grid-cols-3">
+      <footer className="mt-12 border-t md:mt-20 border-border bg-card">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-8 md:py-12 sm:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
               <img src={logo} alt="" width={32} height={32} className="h-8 w-8" />

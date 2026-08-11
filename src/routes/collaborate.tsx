@@ -53,7 +53,7 @@ const audiences = [
 function CollaboratePage() {
   return (
     <SiteLayout>
-      <section className="mx-auto max-w-6xl px-5 py-16 md:py-24">
+      <section className="mx-auto max-w-6xl px-5 py-10 md:py-20">
         <span className="eyebrow">Collaborate</span>
         <h1 className="mt-3 max-w-3xl text-4xl text-deep md:text-5xl">Let's collaborate</h1>
         <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
