@@ -76,16 +76,16 @@ function AboutPage() {
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               We started with practical use cases in real estate, shopping, tourism, and services,
-              focusing on areas where good decisions have a real impact. Our approach is deliberate: build lean,
-              experiment fast, and focus on problems that actually matter.
+              focusing on areas where good decisions have a real impact. Our approach is deliberate:
+              build lean, experiment fast, and focus on problems that actually matter.
             </p>
           </article>
           <article className="surface-card p-8">
             <h2 className="text-2xl text-deep">Looking forward</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              We're building more than tools, as we are creating a new way for people to interact with
-              AI that feels natural, trustworthy and genuinely helpful. Our vision is a world where
-              technology amplifies human decision-making rather than replacing it.
+              We're building more than tools, as we are creating a new way for people to interact
+              with AI that feels natural, trustworthy and genuinely helpful. Our vision is a world
+              where technology amplifies human decision-making rather than replacing it.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               While we're just getting started, we build with a global mindset, because the best
