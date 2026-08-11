@@ -24,7 +24,8 @@ export function ContactForm() {
 
     const next: Errors = {};
     if (!payload.name) next.name = "Please tell us your name.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) next.email = "Enter a valid email address.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email))
+      next.email = "Enter a valid email address.";
     if (payload.message.length < 10) next.message = "Please add a few more details.";
     setErrors(next);
     if (Object.keys(next).length > 0) return;
@@ -46,7 +47,7 @@ export function ContactForm() {
     "mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-primary";
 
   return (
-    <form onSubmit={onSubmit} className="surface-card p-6 md:p-8" noValidate>
+    <form onSubmit={onSubmit} className="surface-card p-4 sm:p-6 md:p-8" noValidate>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -59,7 +60,14 @@ export function ContactForm() {
           <label htmlFor="email" className="text-sm font-medium text-foreground">
             Email
           </label>
-          <input id="email" name="email" type="email" maxLength={255} className={field} autoComplete="email" />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            maxLength={255}
+            className={field}
+            autoComplete="email"
+          />
           {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
         </div>
       </div>
@@ -68,7 +76,13 @@ export function ContactForm() {
         <label htmlFor="company" className="text-sm font-medium text-foreground">
           Company <span className="text-muted-foreground">(optional)</span>
         </label>
-        <input id="company" name="company" maxLength={120} className={field} autoComplete="organization" />
+        <input
+          id="company"
+          name="company"
+          maxLength={120}
+          className={field}
+          autoComplete="organization"
+        />
       </div>
 
       <div className="mt-4">
@@ -79,7 +93,11 @@ export function ContactForm() {
         {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
       </div>
 
-      <button type="submit" disabled={pending} className="btn-primary mt-6 disabled:opacity-60">
+      <button
+        type="submit"
+        disabled={pending}
+        className="btn-primary mt-6 w-full sm:w-auto disabled:opacity-60"
+      >
         {pending ? "Sending…" : "Send message"}
       </button>
 
