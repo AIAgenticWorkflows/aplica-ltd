@@ -106,17 +106,17 @@ function Index() {
           aria-hidden
           className="pointer-events-none absolute -left-32 top-40 h-80 w-80 rounded-full bg-secondary/70 blur-3xl"
         />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-[1.15fr_0.85fr] md:py-28">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-5 py-10 md:grid-cols-[1.15fr_0.85fr] md:py-24">
           <div>
             <span className="eyebrow">Aplica Ltd</span>
             <h1 className="mt-4 text-4xl leading-tight text-deep sm:text-5xl md:text-6xl">
               Custom solutions, built around your needs
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+            <p className="mt-4 max-w-xl md:mt-6 text-lg text-muted-foreground">
               With product expertise, engineering expertise and AI capabilities, we help you solve
               problems faster and create new opportunities.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap md:mt-8 gap-3">
               <Link to="/work" className="btn-primary">
                 See what we're building
               </Link>
@@ -133,15 +133,15 @@ function Index() {
                 alt="Aplica interlocking circular logo mark"
                 width={320}
                 height={320}
-                className="relative h-56 w-56 md:h-80 md:w-80"
+                className="relative h-40 w-40 sm:h-56 sm:w-56 md:h-80 md:w-80"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="surface-card p-8 md:p-12">
+      <section className="mx-auto max-w-6xl px-5 py-6 md:py-14">
+        <div className="surface-card p-6 md:p-12">
           <span className="eyebrow">Our mission</span>
           <h2 className="mt-3 text-3xl text-deep md:text-4xl">
             Turning promising ideas into reliable tools
@@ -153,10 +153,10 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-8">
+      <section className="mx-auto max-w-6xl px-5 py-6 md:py-8">
         <span className="eyebrow">What drives us</span>
         <h2 className="mt-3 text-3xl text-deep md:text-4xl">Four principles</h2>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-4 md:mt-8 md:gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {principles.map((p) => (
             <article key={p.title} className="surface-card p-6">
               <h3 className="text-xl text-deep">{p.title}</h3>
@@ -166,10 +166,10 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-16">
+      <section className="mx-auto max-w-6xl px-5 py-8 md:py-16">
         <span className="eyebrow">Current focus</span>
         <h2 className="mt-3 text-3xl text-deep md:text-4xl">Where we're experimenting</h2>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <div className="mt-6 grid gap-4 md:mt-8 md:gap-5 md:grid-cols-3">
           {focus.map((f) => (
             <article key={f.title} className="surface-card p-6">
               <h3 className="text-xl text-deep">{f.title}</h3>
