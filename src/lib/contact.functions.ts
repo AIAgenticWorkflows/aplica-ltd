@@ -29,20 +29,8 @@ export const submitContactMessage = createServerFn({ method: "POST" })
       throw new Error("Could not save your message. Please try again.");
     }
 
-    try {
-      const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
-      await sendTemplateEmail("contact-notification", "info@aplica.biz", {
-        templateData: {
-          name: data.name,
-          email: data.email,
-          company: data.company || undefined,
-          message: data.message,
-        },
-        idempotencyKey: `contact-notification-${row.id}`,
-      });
-    } catch (emailError) {
-      console.error("contact email failed", emailError);
-    }
+    void row;
+
 
     return { ok: true as const };
   });
