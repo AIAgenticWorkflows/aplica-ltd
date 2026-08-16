@@ -258,3 +258,11 @@
     color: var(--color-deep);
   }
 }
+
+@utility hover-scale {
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
