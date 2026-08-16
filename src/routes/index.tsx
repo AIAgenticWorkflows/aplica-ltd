@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
+import { Reveal } from "@/components/reveal";
 import logo from "@/assets/aplica-logo.png";
 
 export const Route = createFileRoute("/")({
