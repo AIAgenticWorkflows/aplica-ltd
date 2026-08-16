@@ -101,40 +101,43 @@ function Index() {
       <section className="relative overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-accent/60 blur-3xl"
+          className="animate-drift pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-accent/60 blur-3xl"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-32 top-40 h-80 w-80 rounded-full bg-secondary/70 blur-3xl"
+          className="animate-drift pointer-events-none absolute -left-32 top-40 h-80 w-80 rounded-full bg-secondary/70 blur-3xl [animation-delay:-6s]"
         />
         <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-5 py-10 md:grid-cols-[1.15fr_0.85fr] md:py-24">
           <div>
-            <span className="eyebrow">Aplica Ltd</span>
-            <h1 className="mt-4 text-4xl leading-tight text-deep sm:text-5xl md:text-6xl">
+            <span className="eyebrow animate-rise">Aplica Ltd</span>
+            <h1 className="animate-rise text-sheen mt-4 text-4xl leading-tight sm:text-5xl md:text-6xl [animation-delay:0.08s]">
               Custom solutions, built around your needs
             </h1>
-            <p className="mt-4 max-w-xl md:mt-6 text-lg text-muted-foreground">
+            <p className="animate-rise mt-4 max-w-xl text-lg text-muted-foreground md:mt-6 [animation-delay:0.18s]">
               With product expertise, engineering expertise and AI capabilities, we help you solve
               problems faster and create new opportunities.
             </p>
-            <div className="mt-6 flex flex-wrap md:mt-8 gap-3">
-              <Link to="/work" className="btn-primary">
+            <div className="animate-rise mt-6 flex flex-wrap gap-3 md:mt-8 [animation-delay:0.28s]">
+              <Link to="/work" className="btn-primary hover-scale">
                 See what we're building
               </Link>
-              <Link to="/collaborate" className="btn-secondary">
+              <Link to="/collaborate" className="btn-secondary hover-scale">
                 Start a conversation
               </Link>
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="relative">
-              <div aria-hidden className="absolute -inset-8 rounded-full bg-accent/50 blur-3xl" />
+            <div className="animate-rise relative [animation-delay:0.2s]">
+              <div
+                aria-hidden
+                className="animate-drift absolute -inset-8 rounded-full bg-accent/50 blur-3xl"
+              />
               <img
                 src={logo}
                 alt="Aplica interlocking circular logo mark"
                 width={320}
                 height={320}
-                className="relative h-40 w-40 sm:h-56 sm:w-56 md:h-80 md:w-80"
+                className="animate-float-slow relative h-40 w-40 sm:h-56 sm:w-56 md:h-80 md:w-80"
               />
             </div>
           </div>
@@ -142,7 +145,7 @@ function Index() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-6 md:py-14">
-        <div className="surface-card p-6 md:p-12">
+        <Reveal className="surface-card p-6 md:p-12">
           <span className="eyebrow">Our mission</span>
           <h2 className="mt-3 text-3xl text-deep md:text-4xl">
             Turning promising ideas into reliable tools
@@ -151,39 +154,44 @@ function Index() {
             We're not here to chase trends. We build lean, experiment fast and focus on solving
             problems that matter.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-6 md:py-8">
-        <span className="eyebrow">What drives us</span>
-        <h2 className="mt-3 text-3xl text-deep md:text-4xl">Four principles</h2>
-        <div className="mt-6 grid gap-4 md:mt-8 md:gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {principles.map((p) => (
-            <article key={p.title} className="surface-card p-6">
+        <Reveal>
+          <span className="eyebrow">What drives us</span>
+          <h2 className="mt-3 text-3xl text-deep md:text-4xl">Four principles</h2>
+        </Reveal>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 md:mt-8 md:gap-5 lg:grid-cols-4">
+          {principles.map((p, i) => (
+            <Reveal key={p.title} as="article" delay={i * 90} className="surface-card p-6">
               <h3 className="text-xl text-deep">{p.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-8 md:py-16">
-        <span className="eyebrow">Current focus</span>
-        <h2 className="mt-3 text-3xl text-deep md:text-4xl">Where we're experimenting</h2>
-        <div className="mt-6 grid gap-4 md:mt-8 md:gap-5 md:grid-cols-3">
-          {focus.map((f) => (
-            <article key={f.title} className="surface-card p-6">
+        <Reveal>
+          <span className="eyebrow">Current focus</span>
+          <h2 className="mt-3 text-3xl text-deep md:text-4xl">Where we're experimenting</h2>
+        </Reveal>
+        <div className="mt-6 grid gap-4 md:mt-8 md:grid-cols-3 md:gap-5">
+          {focus.map((f, i) => (
+            <Reveal key={f.title} as="article" delay={i * 110} className="surface-card p-6">
               <h3 className="text-xl text-deep">{f.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{f.body}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
-        <div className="mt-8">
-          <Link to="/work" className="btn-secondary">
+        <Reveal className="mt-8">
+          <Link to="/work" className="btn-secondary hover-scale">
             Explore our work
           </Link>
-        </div>
+        </Reveal>
       </section>
+
     </SiteLayout>
   );
 }
