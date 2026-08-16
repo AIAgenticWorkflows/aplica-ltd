@@ -155,3 +155,114 @@
   text-transform: uppercase;
   color: var(--color-primary);
 }
+
+/* ---------- Motion ---------- */
+
+@keyframes aplica-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aplica-float {
+  0%,
+  100% {
+    transform: translateY(-10px) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(1.5deg);
+  }
+}
+
+@keyframes aplica-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-4%, 6%, 0) scale(1.12);
+  }
+}
+
+@keyframes aplica-sheen {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal[data-shown="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@utility animate-rise {
+  animation: aplica-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-float-slow {
+  animation: aplica-float 9s ease-in-out infinite;
+}
+
+@utility animate-drift {
+  animation: aplica-drift 16s ease-in-out infinite;
+}
+
+@utility text-sheen {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-deep) 0%,
+    var(--color-deep) 35%,
+    var(--color-highlight) 50%,
+    var(--color-deep) 65%,
+    var(--color-deep) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: aplica-sheen 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-rise,
+  .animate-float-slow,
+  .animate-drift,
+  .text-sheen {
+    animation: none !important;
+  }
+
+  .text-sheen {
+    color: var(--color-deep);
+  }
+}
+
+@utility hover-scale {
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
