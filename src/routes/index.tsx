@@ -109,7 +109,7 @@ function Index() {
         />
         <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-5 py-10 md:grid-cols-[1.15fr_0.85fr] md:py-24">
           <div>
-            <span className="eyebrow animate-rise">Aplica Ltd</span>
+            <span className="eyebrow animate-rise">Aplica</span>
             <h1 className="animate-rise text-sheen mt-4 text-4xl leading-tight sm:text-5xl md:text-6xl [animation-delay:0.08s]">
               Custom solutions, built around your needs
             </h1>
