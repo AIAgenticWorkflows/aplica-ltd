@@ -6,8 +6,10 @@
 
 /*
  * Aplica design system.
- * Palette mirrors nisha.aplica.biz: warm off-white canvas, deep teal-blue
- * primary, soft blue accents. Typography: DM Serif Display + DM Sans.
+ * Palette is derived directly from the Aplica logo mark:
+ * navy #29344B, corporate blue #19689D, sky #169DCC,
+ * red #CB3A30, gold #EDB329, green #28A05A.
+ * Typography: Sora (display) + Manrope (body).
  */
 
 @theme inline {
@@ -39,34 +41,49 @@
   --color-highlight: var(--highlight);
   --color-deep: var(--deep);
   --color-sand: var(--sand);
-  --font-display: "DM Serif Display", Georgia, serif;
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-red: var(--brand-red);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-green: var(--brand-green);
+  --color-brand-sky: var(--brand-sky);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-navy: var(--brand-navy);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.973 0.006 84.6);
-  --foreground: oklch(0.308 0.021 66.9);
-  --card: oklch(0.987 0.003 84.6);
-  --card-foreground: oklch(0.308 0.021 66.9);
-  --popover: oklch(0.987 0.003 84.6);
-  --popover-foreground: oklch(0.308 0.021 66.9);
-  --primary: oklch(0.513 0.103 235.4);
-  --primary-foreground: oklch(1 0 89.9);
-  --secondary: oklch(0.94 0.01 228.9);
-  --secondary-foreground: oklch(0.342 0.041 240.6);
-  --muted: oklch(0.946 0.004 247.9);
-  --muted-foreground: oklch(0.436 0.029 239.4);
-  --accent: oklch(0.914 0.031 227.3);
-  --accent-foreground: oklch(0.375 0.057 241.5);
-  --destructive: oklch(0.594 0.186 24.8);
-  --destructive-foreground: oklch(1 0 89.9);
-  --border: oklch(0.894 0.015 229);
-  --input: oklch(0.894 0.015 229);
-  --ring: oklch(0.513 0.103 235.4);
-  --highlight: oklch(0.689 0.136 235);
-  --deep: oklch(0.302 0.034 240.4);
-  --sand: oklch(0.938 0.004 247.9);
+
+  /* Logo-derived brand colours */
+  --brand-navy: #29344b;
+  --brand-blue: #19689d;
+  --brand-sky: #169dcc;
+  --brand-red: #cb3a30;
+  --brand-gold: #edb329;
+  --brand-green: #28a05a;
+
+  --background: #f8fafc;
+  --foreground: #29344b;
+  --card: #ffffff;
+  --card-foreground: #29344b;
+  --popover: #ffffff;
+  --popover-foreground: #29344b;
+  --primary: #19689d;
+  --primary-foreground: #ffffff;
+  --secondary: #e8eef4;
+  --secondary-foreground: #29344b;
+  --muted: #f1f5f9;
+  --muted-foreground: #55637a;
+  --accent: #e7f0f7;
+  --accent-foreground: #19689d;
+  --destructive: #cb3a30;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #19689d;
+  --highlight: #169dcc;
+  --deep: #29344b;
+  --sand: #f1f5f9;
 }
 
 @layer base {
@@ -85,8 +102,8 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -99,7 +116,7 @@
     transform 0.25s ease;
 
   &:hover {
-    box-shadow: 0 18px 40px -24px color-mix(in oklab, var(--color-primary) 55%, transparent);
+    box-shadow: 0 18px 40px -24px color-mix(in oklab, var(--color-deep) 55%, transparent);
     transform: translateY(-2px);
   }
 }
@@ -109,19 +126,21 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 9999px;
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.75rem;
+  font-weight: 700;
   font-size: 0.95rem;
   background-color: var(--color-primary);
   color: var(--color-primary-foreground);
+  box-shadow: 0 12px 30px -16px color-mix(in oklab, var(--color-primary) 80%, transparent);
   transition:
     background-color 0.2s ease,
+    transform 0.2s ease,
     box-shadow 0.2s ease;
 
   &:hover {
-    background-color: var(--color-highlight);
-    box-shadow: 0 12px 30px -14px color-mix(in oklab, var(--color-primary) 70%, transparent);
+    background-color: var(--color-deep);
+    transform: translateY(-2px);
   }
 }
 
@@ -130,19 +149,19 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 9999px;
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.75rem;
+  font-weight: 700;
   font-size: 0.95rem;
   border: 1px solid var(--color-border);
   background-color: var(--color-card);
-  color: var(--color-secondary-foreground);
+  color: var(--color-deep);
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease;
 
   &:hover {
-    background-color: var(--color-accent);
+    background-color: var(--color-muted);
     border-color: var(--color-primary);
   }
 }
@@ -150,7 +169,7 @@
 @utility eyebrow {
   display: inline-block;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-primary);
@@ -189,12 +208,22 @@
   }
 }
 
-@keyframes aplica-sheen {
-  from {
-    background-position: 0% 50%;
+@keyframes aplica-text-slide {
+  0%,
+  22% {
+    transform: translateY(0);
   }
-  to {
-    background-position: 200% 50%;
+  28%,
+  50% {
+    transform: translateY(-100%);
+  }
+  56%,
+  78% {
+    transform: translateY(-200%);
+  }
+  84%,
+  100% {
+    transform: translateY(-300%);
   }
 }
 
@@ -224,20 +253,19 @@
   animation: aplica-drift 16s ease-in-out infinite;
 }
 
-@utility text-sheen {
-  background-image: linear-gradient(
-    100deg,
-    var(--color-deep) 0%,
-    var(--color-deep) 35%,
-    var(--color-highlight) 50%,
-    var(--color-deep) 65%,
-    var(--color-deep) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: aplica-sheen 7s linear infinite;
+/* Vertical cycling headline text */
+@utility text-cycle-window {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.1em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+@utility text-cycle-track {
+  display: flex;
+  flex-direction: column;
+  animation: aplica-text-slide 12s cubic-bezier(0.85, 0, 0.15, 1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -250,12 +278,8 @@
   .animate-rise,
   .animate-float-slow,
   .animate-drift,
-  .text-sheen {
+  .text-cycle-track {
     animation: none !important;
-  }
-
-  .text-sheen {
-    color: var(--color-deep);
   }
 }
 
