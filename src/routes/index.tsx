@@ -1,23 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
+import { CountUp } from "@/components/count-up";
 import logo from "@/assets/aplica-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Custom solutions, built around your needs" },
+      { title: "Aplica: Custom solutions, built around your needs" },
       {
         name: "description",
         content:
-          "With product expertise, engineering expertise and AI capabilities, we help you solve problems faster and create new opportunities.",
+          "Aplica is a multi-service technology firm delivering product strategy, engineering, AI automation, data and managed support to organisations worldwide.",
       },
-      { property: "og:title", content: "Custom solutions, built around your needs" },
+      { property: "og:title", content: "Aplica: Custom solutions, built around your needs" },
       {
         property: "og:description",
         content:
-          "With product expertise, engineering expertise and AI capabilities, we help you solve problems faster and create new opportunities.",
+          "Product strategy, software engineering, AI automation, cloud, data and managed support: one partner across the full technology lifecycle.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
@@ -35,15 +36,15 @@ export const Route = createFileRoute("/")({
               name: "What does Aplica do?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Aplica brings together product expertise, engineering expertise and AI capabilities to help you solve problems faster and create new opportunities.",
+                text: "Aplica is a multi-service technology firm. We deliver product strategy, software engineering, AI automation, cloud and data engineering, digital experience and managed support across the full technology lifecycle.",
               },
             },
             {
               "@type": "Question",
-              name: "How does Aplica work with clients?",
+              name: "Which industries does Aplica serve?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "We start by understanding your challenge, then design and build a focused solution that fits your needs. Every project combines thoughtful design, practical engineering and AI where it adds real value.",
+                text: "We work with hospitality and short term rentals, professional services, retail and commerce, real estate, travel and tourism, and public and non-profit organisations.",
               },
             },
             {
@@ -51,7 +52,7 @@ export const Route = createFileRoute("/")({
               name: "How can I work with Aplica?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Aplica works with partners, early testers and idea contributors. Reach out through the Collaborate page or on LinkedIn.",
+                text: "Start with a discovery session through the Collaborate page, or reach out on LinkedIn. We scope the work, agree outcomes and deliver in short, measurable phases.",
               },
             },
           ],
@@ -61,136 +62,327 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const principles = [
+const cyclingWords = ["Precision.", "Scale.", "Agility.", "Precision."];
+
+const stats = [
+  { value: 120, suffix: "+", label: "Projects delivered", color: "text-brand-blue" },
+  { value: 6, suffix: "", label: "Service divisions", color: "text-brand-red" },
+  { value: 98, suffix: "%", label: "Client retention", color: "text-brand-green" },
+  { value: 24, suffix: "/7", label: "Managed support", color: "text-brand-gold" },
+];
+
+const services = [
   {
-    title: "Simplicity",
-    body: "Clear, intuitive tools that remove complexity from decision-making.",
+    title: "Product Strategy",
+    body: "Discovery, research and roadmapping that aligns business objectives with what your users actually need.",
+    accent: "brand-red",
+    points: ["Discovery sessions", "UX audits", "Roadmapping"],
   },
   {
-    title: "Usefulness",
-    body: "Every feature serves a real purpose and adds genuine value.",
+    title: "Software Engineering",
+    body: "Custom web platforms and corporate sites built for performance, accessibility and long-term maintainability.",
+    accent: "brand-blue",
+    points: ["Corporate websites", "Web platforms", "Integrations"],
   },
   {
-    title: "Curiosity",
-    body: "Continuous learning and exploration of new possibilities.",
+    title: "AI & Automation",
+    body: "Agent-based automation and applied AI embedded directly into the operational workflows that slow teams down.",
+    accent: "brand-gold",
+    points: ["Process automation", "Applied AI", "Assistants"],
   },
   {
-    title: "Integrity",
-    body: "Privacy-first AI and transparent, ethical practices.",
+    title: "Data & Analytics",
+    body: "Turning operational data into reporting and forecasting leadership teams can actually act on.",
+    accent: "brand-green",
+    points: ["Reporting", "Forecasting", "Dashboards"],
+  },
+  {
+    title: "Hospitality Technology",
+    body: "Short term rental intelligence: guest automation, channel operations and revenue optimisation for hosts and operators.",
+    accent: "brand-sky",
+    points: ["Guest automation", "Revenue tooling", "Operations"],
   },
 ];
 
-const focus = [
+const accentClasses: Record<string, { border: string; bg: string; text: string; dot: string }> = {
+  "brand-red": {
+    border: "border-t-brand-red",
+    bg: "bg-brand-red/10",
+    text: "text-brand-red",
+    dot: "bg-brand-red",
+  },
+  "brand-blue": {
+    border: "border-t-brand-blue",
+    bg: "bg-brand-blue/10",
+    text: "text-brand-blue",
+    dot: "bg-brand-blue",
+  },
+  "brand-gold": {
+    border: "border-t-brand-gold",
+    bg: "bg-brand-gold/10",
+    text: "text-brand-gold",
+    dot: "bg-brand-gold",
+  },
+  "brand-green": {
+    border: "border-t-brand-green",
+    bg: "bg-brand-green/10",
+    text: "text-brand-green",
+    dot: "bg-brand-green",
+  },
+  "brand-sky": {
+    border: "border-t-brand-sky",
+    bg: "bg-brand-sky/10",
+    text: "text-brand-sky",
+    dot: "bg-brand-sky",
+  },
+};
+
+const industries = [
+  "Hospitality & Short Term Rentals",
+  "Professional Services",
+  "Retail & Commerce",
+  "Real Estate",
+  "Travel & Tourism",
+  "Public & Non-Profit",
+];
+
+const process = [
   {
-    title: "Building Corporate Websites",
-    body: "Designing and building high-performance, professional websites tailored to represent your business.",
+    step: "01",
+    title: "Discover",
+    body: "We map your operations, systems and constraints before proposing a single line of work.",
   },
   {
-    title: "Short Term Rental Intelligence",
-    body: "Guest automation and revenue optimisation for hosts.",
+    step: "02",
+    title: "Design",
+    body: "A scoped solution with clear outcomes, timelines and the measures we will be judged on.",
   },
   {
-    title: "Client Discovery Sessions",
-    body: "Collaborative workshops to explore and identify practical AI automation opportunities for your operations.",
+    step: "03",
+    title: "Build",
+    body: "Short delivery phases with working software in your hands at the end of each one.",
+  },
+  {
+    step: "04",
+    title: "Support",
+    body: "Ongoing maintenance, monitoring and iteration once the solution is live.",
   },
 ];
 
 function Index() {
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden">
-        <div
-          aria-hidden
-          className="animate-drift pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-accent/60 blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="animate-drift pointer-events-none absolute -left-32 top-40 h-80 w-80 rounded-full bg-secondary/70 blur-3xl [animation-delay:-6s]"
-        />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-5 py-10 md:grid-cols-[1.15fr_0.85fr] md:py-24">
-          <div>
-            <h1 className="animate-rise text-sheen mt-4 text-4xl leading-tight sm:text-5xl md:text-6xl [animation-delay:0.08s]">
-              Custom solutions, built around your needs
+      {/* Hero */}
+      <section className="relative overflow-hidden px-5 py-16 md:py-24">
+        <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/3 opacity-10 lg:block">
+          <div className="absolute right-16 top-16 h-64 w-64 rounded-full border-[16px] border-brand-gold" />
+          <div className="absolute bottom-16 right-40 h-48 w-48 rounded-full border-[12px] border-brand-red" />
+        </div>
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="max-w-3xl">
+            <span className="animate-rise eyebrow">Multi-service technology firm</span>
+            <h1 className="animate-rise mt-4 text-5xl font-extrabold leading-[1.08] text-deep md:text-7xl [animation-delay:0.08s]">
+              Engineering{" "}
+              <span className="text-cycle-window text-primary">
+                <span className="text-cycle-track">
+                  {cyclingWords.map((word, i) => (
+                    <span key={`${word}-${i}`}>{word}</span>
+                  ))}
+                </span>
+              </span>
             </h1>
-            <p className="animate-rise mt-4 max-w-xl text-lg text-muted-foreground md:mt-6 [animation-delay:0.18s]">
-              With product expertise, engineering expertise and AI capabilities, we help you solve
-              problems faster and create new opportunities.
+            <p className="animate-rise mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl [animation-delay:0.18s]">
+              Aplica designs and builds digital solutions tailored to your business. With product
+              expertise, engineering experience and AI capabilities across six service divisions, we
+              help you solve problems faster and create new opportunities.
             </p>
-            <div className="animate-rise mt-6 flex flex-wrap gap-3 md:mt-8 [animation-delay:0.28s]">
-              <Link to="/work" className="btn-primary hover-scale">
-                See what we're building
+            <div className="animate-rise mt-8 flex flex-wrap gap-4 [animation-delay:0.28s]">
+              <Link to="/work" className="btn-primary">
+                Explore our services
               </Link>
-              <Link to="/collaborate" className="btn-secondary hover-scale">
+              <Link to="/collaborate" className="btn-secondary">
                 Start a conversation
               </Link>
             </div>
           </div>
-          <div className="flex justify-center">
+
+          <div className="flex justify-center lg:justify-end">
             <div className="animate-rise relative [animation-delay:0.2s]">
               <div
                 aria-hidden
-                className="animate-drift absolute -inset-8 rounded-full bg-accent/50 blur-3xl"
+                className="animate-drift absolute -inset-10 rounded-full bg-brand-sky/20 blur-3xl"
               />
               <img
                 src={logo}
                 alt="Aplica interlocking circular logo mark"
-                width={320}
-                height={320}
-                className="animate-float-slow relative h-40 w-40 sm:h-56 sm:w-56 md:h-80 md:w-80"
+                width={340}
+                height={340}
+                className="animate-float-slow relative h-44 w-44 sm:h-60 sm:w-60 lg:h-80 lg:w-80"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-6 md:py-14">
-        <Reveal className="surface-card p-6 md:p-12">
-          <span className="eyebrow">Our mission</span>
-          <h2 className="mt-3 text-3xl text-deep md:text-4xl">
-            Turning promising ideas into reliable tools
+      {/* Credibility stats */}
+      <section className="bg-deep px-5 py-14 md:py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 text-center md:grid-cols-4">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 90}>
+              <div className={`font-display text-4xl font-extrabold md:text-5xl ${s.color}`}>
+                <CountUp value={s.value} suffix={s.suffix} />
+              </div>
+              <div className="mt-2 text-xs font-bold uppercase tracking-widest text-secondary/60">
+                {s.label}
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Service grid */}
+      <section className="bg-card px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <Reveal className="mb-12 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <span className="eyebrow">What we do</span>
+              <h2 className="mt-3 text-3xl font-bold text-deep md:text-4xl">
+                A broad service spectrum
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                Six divisions covering the full technology lifecycle, so you deal with one partner
+                instead of five vendors.
+              </p>
+            </div>
+            <Link
+              to="/work"
+              className="shrink-0 border-b-2 border-primary pb-1 font-bold text-primary transition-colors hover:border-deep hover:text-deep"
+            >
+              View all services
+            </Link>
+          </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((s, i) => {
+              const a = accentClasses[s.accent]!;
+              return (
+                <Reveal
+                  key={s.title}
+                  as="article"
+                  delay={i * 80}
+                  className={`rounded-2xl border border-border border-t-4 bg-background p-8 transition-shadow duration-300 hover:shadow-xl ${a.border}`}
+                >
+                  <div
+                    className={`mb-6 flex h-12 w-12 items-center justify-center rounded-lg ${a.bg}`}
+                  >
+                    <span className={`font-display text-lg font-extrabold ${a.text}`}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-deep">{s.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                  <ul className="mt-5 space-y-2">
+                    {s.points.map((p) => (
+                      <li
+                        key={p}
+                        className="flex items-center gap-2 text-sm font-semibold text-deep"
+                      >
+                        <span className={`h-1.5 w-1.5 rounded-full ${a.dot}`} />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              );
+            })}
+
+            <Reveal
+              as="article"
+              delay={400}
+              className="flex flex-col items-center justify-center rounded-2xl bg-deep p-8 text-center"
+            >
+              <h3 className="mb-3 text-xl font-bold text-white">Managed Support</h3>
+              <p className="mb-6 text-sm leading-relaxed text-secondary/70">
+                Monitoring, maintenance and continuous improvement once your solution is live.
+              </p>
+              <Link
+                to="/collaborate"
+                className="w-full rounded-lg bg-primary py-3 font-bold text-primary-foreground transition-colors hover:bg-brand-sky"
+              >
+                Start collaboration
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="px-5 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <Reveal>
+            <span className="eyebrow">Industries</span>
+            <h2 className="mt-3 text-3xl font-bold text-deep md:text-4xl">Sectors we serve</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((name, i) => (
+              <Reveal
+                key={name}
+                delay={i * 60}
+                className="flex items-center gap-3 rounded-xl border border-border bg-card px-6 py-5"
+              >
+                <span className="h-2 w-2 shrink-0 rounded-full bg-primary" />
+                <span className="font-semibold text-deep">{name}</span>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="bg-card px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <Reveal>
+            <span className="eyebrow">How we work</span>
+            <h2 className="mt-3 text-3xl font-bold text-deep md:text-4xl">
+              A predictable delivery process
+            </h2>
+          </Reveal>
+          <div className="mt-10 grid gap-6 md:grid-cols-4">
+            {process.map((p, i) => (
+              <Reveal
+                key={p.step}
+                as="article"
+                delay={i * 90}
+                className="border-t-2 border-border pt-6"
+              >
+                <div className="font-display text-3xl font-extrabold text-primary">{p.step}</div>
+                <h3 className="mt-3 text-xl font-bold text-deep">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="px-5 pb-4">
+        <Reveal className="mx-auto max-w-7xl rounded-3xl bg-deep px-6 py-14 text-center md:px-12 md:py-20">
+          <h2 className="text-3xl font-bold text-white md:text-4xl">
+            Let's scope your next project
           </h2>
-          <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
-            We're not here to chase trends. We build lean, experiment fast and focus on solving
-            problems that matter.
+          <p className="mx-auto mt-4 max-w-2xl text-secondary/70">
+            Tell us what you're trying to solve. We'll come back with a clear plan, a timeline and
+            the outcomes we'll be measured on.
           </p>
-        </Reveal>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-6 md:py-8">
-        <Reveal>
-          <span className="eyebrow">What drives us</span>
-          <h2 className="mt-3 text-3xl text-deep md:text-4xl">Four principles</h2>
-        </Reveal>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 md:mt-8 md:gap-5 lg:grid-cols-4">
-          {principles.map((p, i) => (
-            <Reveal key={p.title} as="article" delay={i * 90} className="surface-card p-6">
-              <h3 className="text-xl text-deep">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-8 md:py-16">
-        <Reveal>
-          <span className="eyebrow">Current focus</span>
-          <h2 className="mt-3 text-3xl text-deep md:text-4xl">Where we're experimenting</h2>
-        </Reveal>
-        <div className="mt-6 grid gap-4 md:mt-8 md:grid-cols-3 md:gap-5">
-          {focus.map((f, i) => (
-            <Reveal key={f.title} as="article" delay={i * 110} className="surface-card p-6">
-              <h3 className="text-xl text-deep">{f.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{f.body}</p>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal className="mt-8">
-          <Link to="/work" className="btn-secondary hover-scale">
-            Explore our work
+          <Link
+            to="/collaborate"
+            className="mt-8 inline-flex rounded-lg bg-primary px-8 py-4 font-bold text-primary-foreground transition-colors hover:bg-brand-sky"
+          >
+            Start a conversation
           </Link>
         </Reveal>
       </section>
-
     </SiteLayout>
   );
 }
