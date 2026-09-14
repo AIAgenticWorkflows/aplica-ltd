@@ -302,9 +302,10 @@ function Index() {
               delay={400}
               className="flex flex-col items-center justify-center rounded-2xl bg-deep p-8 text-center"
             >
-              <h3 className="mb-3 text-xl font-bold text-white">Managed Support</h3>
+              <h3 className="mb-3 text-xl font-bold text-white">Training & Speaking</h3>
               <p className="mb-6 text-sm leading-relaxed text-secondary/70">
-                Monitoring, maintenance and continuous improvement once your solution is live.
+                Conference talks and hands-on sessions on AI agents, data privacy and robotics for
+                teams and communities.
               </p>
               <Link
                 to="/collaborate"
