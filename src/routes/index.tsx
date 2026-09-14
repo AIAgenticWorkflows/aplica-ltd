@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Aplica is a technology consultancy combining 20 years of software engineering, product leadership and AI automation experience across platforms serving over a million monthly users.",
+          "Aplica is a technology consultancy built on its founder's 20 years of software engineering, product leadership and AI automation experience across platforms serving over a million monthly users.",
       },
       { property: "og:title", content: "Aplica: Custom solutions, built around your needs" },
       {
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
               name: "What does Aplica do?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Aplica is a technology consultancy founded in 2015 and relaunched in 2024. We deliver AI agents and automation, product management, custom software engineering, platform migration and rapid prototyping, drawing on 20 years of experience in software engineering, product leadership and applied AI.",
+                text: "Aplica is a technology consultancy founded in 2015 and relaunched in 2024. We deliver AI agents and automation, product management, custom software engineering, platform migration and rapid prototyping, drawing on our founder's 20 years of experience in software engineering, product leadership and applied AI.",
               },
             },
             {
@@ -65,8 +65,8 @@ export const Route = createFileRoute("/")({
 const cyclingWords = ["Precision.", "Scale.", "Agility.", "Precision."];
 
 const stats = [
-  { value: 20, suffix: " yrs", label: "Industry experience", color: "text-brand-blue" },
-  { value: 1, suffix: "M+", label: "Monthly platform users", color: "text-brand-red" },
+  { value: 20, suffix: " yrs", label: "Founder's industry experience", color: "text-brand-blue" },
+  { value: 1, suffix: "M+", label: "Monthly users on platforms delivered", color: "text-brand-red" },
   { value: 5, suffix: "", label: "Countries delivered in", color: "text-brand-green" },
   { value: 17, suffix: "", label: "Largest team led", color: "text-brand-gold" },
 ];
@@ -92,7 +92,7 @@ const services = [
   },
   {
     title: "Platform Migration",
-    body: "Led two major platform migrations in Kenya and Romania on systems serving over a million unique users a month.",
+    body: "Founder-led major platform migrations in Kenya and Romania on systems serving over a million unique users a month.",
     accent: "brand-green",
     points: ["Legacy modernisation", "High-traffic migration", "Architecture review"],
   },
@@ -193,9 +193,9 @@ function Index() {
               </span>
             </h1>
             <p className="animate-rise mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl [animation-delay:0.18s]">
-              Aplica designs and builds digital solutions tailored to your business. Backed by 20
-              years across software engineering, product leadership and applied AI, we help you solve
-              problems faster and create new opportunities.
+              Aplica designs and builds digital solutions tailored to your business. Founded on 20
+              years of hands-on experience across software engineering, product leadership and
+              applied AI, we help you solve problems faster and create new opportunities.
             </p>
             <div className="animate-rise mt-8 flex flex-wrap gap-4 [animation-delay:0.28s]">
               <Link to="/work" className="btn-primary">
@@ -225,19 +225,31 @@ function Index() {
         </div>
       </section>
 
-      {/* Credibility stats */}
+      {/* Credibility stats — founder-attributed */}
       <section className="bg-deep px-5 py-14 md:py-16">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 text-center md:grid-cols-4">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 90}>
-              <div className={`font-display text-4xl font-extrabold md:text-5xl ${s.color}`}>
-                <CountUp value={s.value} suffix={s.suffix} />
-              </div>
-              <div className="mt-2 text-xs font-bold uppercase tracking-widest text-secondary/60">
-                {s.label}
-              </div>
-            </Reveal>
-          ))}
+        <div className="mx-auto max-w-7xl">
+          <Reveal className="text-center">
+            <span className="eyebrow">Who we are</span>
+            <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+              The experience behind Aplica
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-secondary/70 md:text-base">
+              Aplica was founded by Nisha Appanah, and the track record below is his — two decades of
+              hands-on delivery we bring to every engagement.
+            </p>
+          </Reveal>
+          <div className="mt-10 grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 90}>
+                <div className={`font-display text-4xl font-extrabold md:text-5xl ${s.color}`}>
+                  <CountUp value={s.value} suffix={s.suffix} />
+                </div>
+                <div className="mt-2 text-xs font-bold uppercase tracking-widest text-secondary/60">
+                  {s.label}
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
