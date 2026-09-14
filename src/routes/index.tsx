@@ -12,13 +12,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Aplica is a multi-service technology firm delivering product strategy, engineering, AI automation, data and managed support to organisations worldwide.",
+          "Aplica is a technology consultancy combining 20 years of software engineering, product leadership and AI automation experience across platforms serving over a million monthly users.",
       },
       { property: "og:title", content: "Aplica: Custom solutions, built around your needs" },
       {
         property: "og:description",
         content:
-          "Product strategy, software engineering, AI automation, cloud, data and managed support: one partner across the full technology lifecycle.",
+          "AI agents and automation, product management, software engineering, platform migration and rapid prototyping: 20 years of experience across five countries.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
               name: "What does Aplica do?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Aplica is a multi-service technology firm. We deliver product strategy, software engineering, AI automation, cloud and data engineering, digital experience and managed support across the full technology lifecycle.",
+                text: "Aplica is a technology consultancy founded in 2015 and relaunched in 2024. We deliver AI agents and automation, product management, custom software engineering, platform migration and rapid prototyping, drawing on 20 years of experience in software engineering, product leadership and applied AI.",
               },
             },
             {
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
               name: "Which industries does Aplica serve?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "We work with hospitality and short term rentals, professional services, retail and commerce, real estate, travel and tourism, and public and non-profit organisations.",
+                text: "Our delivery experience covers short term rentals and villa management, property marketplaces and real estate portals, university and student housing systems, payment and smartcard solutions, and workflow and ERP systems for business operations.",
               },
             },
             {
@@ -65,42 +65,42 @@ export const Route = createFileRoute("/")({
 const cyclingWords = ["Precision.", "Scale.", "Agility.", "Precision."];
 
 const stats = [
-  { value: 120, suffix: "+", label: "Projects delivered", color: "text-brand-blue" },
-  { value: 6, suffix: "", label: "Service divisions", color: "text-brand-red" },
-  { value: 98, suffix: "%", label: "Client retention", color: "text-brand-green" },
-  { value: 24, suffix: "/7", label: "Managed support", color: "text-brand-gold" },
+  { value: 20, suffix: " yrs", label: "Industry experience", color: "text-brand-blue" },
+  { value: 1, suffix: "M+", label: "Monthly platform users", color: "text-brand-red" },
+  { value: 5, suffix: "", label: "Countries delivered in", color: "text-brand-green" },
+  { value: 17, suffix: "", label: "Largest team led", color: "text-brand-gold" },
 ];
 
 const services = [
   {
-    title: "Product Strategy",
-    body: "Discovery, research and roadmapping that aligns business objectives with what your users actually need.",
+    title: "AI Agents & Automation",
+    body: "Agent-based automation built in n8n and modern AI tooling, embedded directly into the workflows that slow your team down.",
+    accent: "brand-gold",
+    points: ["AI agents in n8n", "Inquiry automation", "Prompt engineering"],
+  },
+  {
+    title: "Product Management",
+    body: "Roadmaps, discovery and delivery rituals shaped by leading product for the largest property marketplace across three countries.",
     accent: "brand-red",
-    points: ["Discovery sessions", "UX audits", "Roadmapping"],
+    points: ["Client discovery", "Roadmapping", "Agile delivery"],
   },
   {
     title: "Software Engineering",
-    body: "Custom web platforms and corporate sites built for performance, accessibility and long-term maintainability.",
+    body: "Custom web platforms and business systems built on .NET and modern web stacks, with two decades of hands-on engineering behind them.",
     accent: "brand-blue",
-    points: ["Corporate websites", "Web platforms", "Integrations"],
+    points: [".NET & web platforms", "Integrations & services", "Form and workflow engines"],
   },
   {
-    title: "AI & Automation",
-    body: "Agent-based automation and applied AI embedded directly into the operational workflows that slow teams down.",
-    accent: "brand-gold",
-    points: ["Process automation", "Applied AI", "Assistants"],
-  },
-  {
-    title: "Data & Analytics",
-    body: "Turning operational data into reporting and forecasting leadership teams can actually act on.",
+    title: "Platform Migration",
+    body: "Led two major platform migrations in Kenya and Romania on systems serving over a million unique users a month.",
     accent: "brand-green",
-    points: ["Reporting", "Forecasting", "Dashboards"],
+    points: ["Legacy modernisation", "High-traffic migration", "Architecture review"],
   },
   {
-    title: "Hospitality Technology",
-    body: "Short term rental intelligence: guest automation, channel operations and revenue optimisation for hosts and operators.",
+    title: "Rapid Prototyping",
+    body: "Low-code and AI-assisted prototypes that put a working idea in front of stakeholders in days rather than quarters.",
     accent: "brand-sky",
-    points: ["Guest automation", "Revenue tooling", "Operations"],
+    points: ["Low-code prototypes", "Concept validation", "Stakeholder demos"],
   },
 ];
 
@@ -138,12 +138,12 @@ const accentClasses: Record<string, { border: string; bg: string; text: string; 
 };
 
 const industries = [
-  "Hospitality & Short Term Rentals",
-  "Professional Services",
-  "Retail & Commerce",
-  "Real Estate",
-  "Travel & Tourism",
-  "Public & Non-Profit",
+  "Short Term Rentals & Villa Management",
+  "Property Marketplaces & Real Estate",
+  "University & Student Housing",
+  "Payments & Smartcard Solutions",
+  "Workflow & ERP Systems",
+  "Education & Technical Training",
 ];
 
 const process = [
@@ -181,7 +181,7 @@ function Index() {
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="max-w-3xl">
-            <span className="animate-rise eyebrow">Multi-service technology firm</span>
+            <span className="animate-rise eyebrow">Technology &amp; AI consultancy</span>
             <h1 className="animate-rise mt-4 text-5xl font-extrabold leading-[1.08] text-deep md:text-7xl [animation-delay:0.08s]">
               Engineering{" "}
               <span className="text-cycle-window text-primary">
@@ -193,9 +193,9 @@ function Index() {
               </span>
             </h1>
             <p className="animate-rise mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl [animation-delay:0.18s]">
-              Aplica designs and builds digital solutions tailored to your business. With product
-              expertise, engineering experience and AI capabilities across six service divisions, we
-              help you solve problems faster and create new opportunities.
+              Aplica designs and builds digital solutions tailored to your business. Backed by 20
+              years across software engineering, product leadership and applied AI, we help you solve
+              problems faster and create new opportunities.
             </p>
             <div className="animate-rise mt-8 flex flex-wrap gap-4 [animation-delay:0.28s]">
               <Link to="/work" className="btn-primary">
@@ -251,8 +251,8 @@ function Index() {
                 A broad service spectrum
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Six divisions covering the full technology lifecycle, so you deal with one partner
-                instead of five vendors.
+                Capabilities built over two decades of shipping software, leading product teams and
+                putting AI to work in real operations.
               </p>
             </div>
             <Link
@@ -302,9 +302,10 @@ function Index() {
               delay={400}
               className="flex flex-col items-center justify-center rounded-2xl bg-deep p-8 text-center"
             >
-              <h3 className="mb-3 text-xl font-bold text-white">Managed Support</h3>
+              <h3 className="mb-3 text-xl font-bold text-white">Training & Speaking</h3>
               <p className="mb-6 text-sm leading-relaxed text-secondary/70">
-                Monitoring, maintenance and continuous improvement once your solution is live.
+                Conference talks and hands-on sessions on AI agents, data privacy and robotics for
+                teams and communities.
               </p>
               <Link
                 to="/collaborate"
