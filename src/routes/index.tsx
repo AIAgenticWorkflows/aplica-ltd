@@ -251,8 +251,8 @@ function Index() {
                 A broad service spectrum
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Six divisions covering the full technology lifecycle, so you deal with one partner
-                instead of five vendors.
+                Capabilities built over two decades of shipping software, leading product teams and
+                putting AI to work in real operations.
               </p>
             </div>
             <Link
