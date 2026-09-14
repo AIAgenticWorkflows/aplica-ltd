@@ -12,13 +12,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Aplica is a multi-service technology firm delivering product strategy, engineering, AI automation, data and managed support to organisations worldwide.",
+          "Aplica is a technology consultancy combining 20 years of software engineering, product leadership and AI automation experience across platforms serving over a million monthly users.",
       },
       { property: "og:title", content: "Aplica: Custom solutions, built around your needs" },
       {
         property: "og:description",
         content:
-          "Product strategy, software engineering, AI automation, cloud, data and managed support: one partner across the full technology lifecycle.",
+          "AI agents and automation, product management, software engineering, platform migration and rapid prototyping: 20 years of experience across five countries.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
