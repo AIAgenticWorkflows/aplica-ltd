@@ -138,12 +138,12 @@ const accentClasses: Record<string, { border: string; bg: string; text: string; 
 };
 
 const industries = [
-  "Hospitality & Short Term Rentals",
-  "Professional Services",
-  "Retail & Commerce",
-  "Real Estate",
-  "Travel & Tourism",
-  "Public & Non-Profit",
+  "Short Term Rentals & Villa Management",
+  "Property Marketplaces & Real Estate",
+  "University & Student Housing",
+  "Payments & Smartcard Solutions",
+  "Workflow & ERP Systems",
+  "Education & Technical Training",
 ];
 
 const process = [
