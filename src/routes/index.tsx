@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
               name: "What does Aplica do?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Aplica is a multi-service technology firm. We deliver product strategy, software engineering, AI automation, cloud and data engineering, digital experience and managed support across the full technology lifecycle.",
+                text: "Aplica is a technology consultancy founded in 2015 and relaunched in 2024. We deliver AI agents and automation, product management, custom software engineering, platform migration and rapid prototyping, drawing on 20 years of experience in software engineering, product leadership and applied AI.",
               },
             },
             {
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
               name: "Which industries does Aplica serve?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "We work with hospitality and short term rentals, professional services, retail and commerce, real estate, travel and tourism, and public and non-profit organisations.",
+                text: "Our delivery experience covers short term rentals and villa management, property marketplaces and real estate portals, university and student housing systems, payment and smartcard solutions, and workflow and ERP systems for business operations.",
               },
             },
             {
