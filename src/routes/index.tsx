@@ -193,9 +193,9 @@ function Index() {
               </span>
             </h1>
             <p className="animate-rise mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl [animation-delay:0.18s]">
-              Aplica designs and builds digital solutions tailored to your business. With product
-              expertise, engineering experience and AI capabilities across six service divisions, we
-              help you solve problems faster and create new opportunities.
+              Aplica designs and builds digital solutions tailored to your business. Backed by 20
+              years across software engineering, product leadership and applied AI, we help you solve
+              problems faster and create new opportunities.
             </p>
             <div className="animate-rise mt-8 flex flex-wrap gap-4 [animation-delay:0.28s]">
               <Link to="/work" className="btn-primary">
