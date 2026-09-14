@@ -181,7 +181,7 @@ function Index() {
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="max-w-3xl">
-            <span className="animate-rise eyebrow">Multi-service technology firm</span>
+            <span className="animate-rise eyebrow">Technology &amp; AI consultancy</span>
             <h1 className="animate-rise mt-4 text-5xl font-extrabold leading-[1.08] text-deep md:text-7xl [animation-delay:0.08s]">
               Engineering{" "}
               <span className="text-cycle-window text-primary">
