@@ -65,42 +65,42 @@ export const Route = createFileRoute("/")({
 const cyclingWords = ["Precision.", "Scale.", "Agility.", "Precision."];
 
 const stats = [
-  { value: 120, suffix: "+", label: "Projects delivered", color: "text-brand-blue" },
-  { value: 6, suffix: "", label: "Service divisions", color: "text-brand-red" },
-  { value: 98, suffix: "%", label: "Client retention", color: "text-brand-green" },
-  { value: 24, suffix: "/7", label: "Managed support", color: "text-brand-gold" },
+  { value: 20, suffix: " yrs", label: "Industry experience", color: "text-brand-blue" },
+  { value: 1, suffix: "M+", label: "Monthly platform users", color: "text-brand-red" },
+  { value: 5, suffix: "", label: "Countries delivered in", color: "text-brand-green" },
+  { value: 17, suffix: "", label: "Largest team led", color: "text-brand-gold" },
 ];
 
 const services = [
   {
-    title: "Product Strategy",
-    body: "Discovery, research and roadmapping that aligns business objectives with what your users actually need.",
+    title: "AI Agents & Automation",
+    body: "Agent-based automation built in n8n and modern AI tooling, embedded directly into the workflows that slow your team down.",
+    accent: "brand-gold",
+    points: ["AI agents in n8n", "Inquiry automation", "Prompt engineering"],
+  },
+  {
+    title: "Product Management",
+    body: "Roadmaps, discovery and delivery rituals shaped by leading product for the largest property marketplace across three countries.",
     accent: "brand-red",
-    points: ["Discovery sessions", "UX audits", "Roadmapping"],
+    points: ["Client discovery", "Roadmapping", "Agile delivery"],
   },
   {
     title: "Software Engineering",
-    body: "Custom web platforms and corporate sites built for performance, accessibility and long-term maintainability.",
+    body: "Custom web platforms and business systems built on .NET and modern web stacks, with two decades of hands-on engineering behind them.",
     accent: "brand-blue",
-    points: ["Corporate websites", "Web platforms", "Integrations"],
+    points: [".NET & web platforms", "Integrations & services", "Form and workflow engines"],
   },
   {
-    title: "AI & Automation",
-    body: "Agent-based automation and applied AI embedded directly into the operational workflows that slow teams down.",
-    accent: "brand-gold",
-    points: ["Process automation", "Applied AI", "Assistants"],
-  },
-  {
-    title: "Data & Analytics",
-    body: "Turning operational data into reporting and forecasting leadership teams can actually act on.",
+    title: "Platform Migration",
+    body: "Led two major platform migrations in Kenya and Romania on systems serving over a million unique users a month.",
     accent: "brand-green",
-    points: ["Reporting", "Forecasting", "Dashboards"],
+    points: ["Legacy modernisation", "High-traffic migration", "Architecture review"],
   },
   {
-    title: "Hospitality Technology",
-    body: "Short term rental intelligence: guest automation, channel operations and revenue optimisation for hosts and operators.",
+    title: "Rapid Prototyping",
+    body: "Low-code and AI-assisted prototypes that put a working idea in front of stakeholders in days rather than quarters.",
     accent: "brand-sky",
-    points: ["Guest automation", "Revenue tooling", "Operations"],
+    points: ["Low-code prototypes", "Concept validation", "Stakeholder demos"],
   },
 ];
 
