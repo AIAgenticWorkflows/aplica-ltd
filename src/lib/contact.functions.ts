@@ -113,25 +113,26 @@ async function sendNotificationEmail(payload: {
 export const submitContactMessage = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => contactSchema.parse(data))
   .handler(async ({ data }) => {
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    try {
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const { data: row, error } = await supabaseAdmin
-      .from("contact_messages")
-      .insert({
-        name: data.name,
-        email: data.email,
-        company: data.company || null,
-        message: data.message,
-      })
-      .select("id")
-      .single();
+      const { error } = await supabaseAdmin
+        .from("contact_messages")
+        .insert({
+          name: data.name,
+          email: data.email,
+          company: data.company || null,
+          message: data.message,
+        })
+        .select("id")
+        .single();
 
-    if (error) {
-      console.error("contact insert failed", error);
-      throw new Error("Could not save your message. Please try again.");
+      if (error) {
+        console.error("contact insert failed:", error);
+      }
+    } catch (err) {
+      console.error("Supabase storage omitted or failed:", err);
     }
-
-    void row;
 
     await sendNotificationEmail({
       name: data.name,

@@ -37,7 +37,7 @@ export function ContactForm() {
       form.reset();
       toast.success("Thanks — your message has been sent!");
     } catch {
-      toast.error("Something went wrong. Please try again or email info@aplica.biz directly.");
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setPending(false);
     }
@@ -84,12 +84,6 @@ export function ContactForm() {
         <button type="submit" disabled={pending} className="btn-primary disabled:opacity-60">
           {pending ? "Sending…" : "Send message"}
         </button>
-        <a
-          href="mailto:info@aplica.biz"
-          className="text-sm font-medium text-primary hover:underline self-center"
-        >
-          Or email info@aplica.biz directly
-        </a>
       </div>
 
       {sent && (
