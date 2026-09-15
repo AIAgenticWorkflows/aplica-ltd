@@ -14,7 +14,6 @@ export async function sendNotificationEmail(payload: {
   company?: string;
   message: string;
 }): Promise<{ sent: boolean; reason?: string }> {
-  const lovableApiKey = process.env.LOVABLE_API_KEY;
   const resendApiKey = process.env.RESEND_API_KEY;
   const recipientEmail = process.env.NOTIFICATION_EMAIL || "info@aplica.biz";
   const fromEmail =
@@ -33,58 +32,6 @@ export async function sendNotificationEmail(payload: {
   const textContent = `New Contact Form Submission\n\nName: ${payload.name}\nEmail: ${payload.email}\nCompany: ${
     payload.company || "N/A"
   }\n\nMessage:\n${payload.message}`;
-
-  if (lovableApiKey) {
-    try {
-      // Try importing @lovable.dev/email-js if available, otherwise call Lovable email API endpoint directly
-      let sent = false;
-      try {
-        const emailSdk = await import("@lovable.dev/email-js");
-        if (emailSdk && typeof emailSdk.sendEmail === "function") {
-          await emailSdk.sendEmail({
-            to: recipientEmail,
-            subject,
-            html: htmlContent,
-            text: textContent,
-            replyTo: payload.email,
-          });
-          sent = true;
-          return { sent: true };
-        }
-      } catch {
-        // SDK module not installed, fallback to direct REST fetch below
-      }
-
-      if (!sent) {
-        const response = await fetch("https://api.lovable.dev/v1/email/send", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${lovableApiKey}`,
-          },
-          body: JSON.stringify({
-            to: recipientEmail,
-            subject,
-            html: htmlContent,
-            text: textContent,
-            replyTo: payload.email,
-          }),
-        });
-
-        if (response.ok) {
-          return { sent: true };
-        } else {
-          const errText = await response.text();
-          console.error("Lovable email API call returned non-OK status:", response.status, errText);
-          return { sent: false, reason: `Lovable API status ${response.status}: ${errText}` };
-        }
-      }
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : String(err);
-      console.error("Failed to send notification email via Lovable API:", err);
-      return { sent: false, reason: msg };
-    }
-  }
 
   if (resendApiKey) {
     try {
@@ -124,11 +71,11 @@ export async function sendNotificationEmail(payload: {
   }
 
   const warnMsg =
-    "[contact.functions] Neither LOVABLE_API_KEY nor RESEND_API_KEY environment variable is configured. Notification email was not sent.";
+    "[contact.functions] RESEND_API_KEY environment variable is not configured. Notification email was not sent.";
   console.warn(warnMsg);
   return {
     sent: false,
-    reason: "Neither LOVABLE_API_KEY nor RESEND_API_KEY environment variable is configured.",
+    reason: "RESEND_API_KEY environment variable is not configured.",
   };
 }
 

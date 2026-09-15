@@ -1,4 +1,4 @@
-import { describe, expect, test, beforeEach, afterEach, mock } from "bun:test";
+import { describe, expect, test, beforeEach, afterEach } from "bun:test";
 import { contactSchema, sendNotificationEmail } from "./contact.functions";
 
 describe("contactSchema", () => {
@@ -37,7 +37,6 @@ describe("sendNotificationEmail", () => {
 
   beforeEach(() => {
     process.env = { ...originalEnv };
-    delete process.env.LOVABLE_API_KEY;
     delete process.env.RESEND_API_KEY;
     delete process.env.NOTIFICATION_EMAIL;
     delete process.env.RESEND_FROM_EMAIL;
@@ -48,7 +47,7 @@ describe("sendNotificationEmail", () => {
     global.fetch = originalFetch;
   });
 
-  test("returns sent: false with reason when no API keys are set", async () => {
+  test("returns sent: false with reason when RESEND_API_KEY is not set", async () => {
     const result = await sendNotificationEmail({
       name: "Test User",
       email: "test@example.com",
@@ -56,51 +55,7 @@ describe("sendNotificationEmail", () => {
     });
 
     expect(result.sent).toBe(false);
-    expect(result.reason).toContain("Neither LOVABLE_API_KEY nor RESEND_API_KEY");
-  });
-
-  test("sends email via Lovable API when LOVABLE_API_KEY is configured", async () => {
-    process.env.LOVABLE_API_KEY = "test-lovable-key";
-    process.env.NOTIFICATION_EMAIL = "info@aplica.biz";
-
-    let capturedUrl = "";
-    let capturedBody: Record<string, unknown> = {};
-
-    global.fetch = (async (url: string | URL | Request, init?: RequestInit) => {
-      capturedUrl = String(url);
-      capturedBody = JSON.parse(String(init?.body || "{}"));
-      return new Response(JSON.stringify({ ok: true }), { status: 200 });
-    }) as typeof fetch;
-
-    const result = await sendNotificationEmail({
-      name: "Alice Smith",
-      email: "alice@example.com",
-      company: "Tech Co",
-      message: "Testing Lovable API contact form integration.",
-    });
-
-    expect(result.sent).toBe(true);
-    expect(capturedUrl).toBe("https://api.lovable.dev/v1/email/send");
-    expect(capturedBody.to).toBe("info@aplica.biz");
-    expect(capturedBody.replyTo).toBe("alice@example.com");
-    expect(capturedBody.subject).toContain("Alice Smith");
-  });
-
-  test("handles failure response from Lovable API", async () => {
-    process.env.LOVABLE_API_KEY = "test-lovable-key";
-
-    global.fetch = (async () => {
-      return new Response("Unauthorized", { status: 401 });
-    }) as typeof fetch;
-
-    const result = await sendNotificationEmail({
-      name: "Alice Smith",
-      email: "alice@example.com",
-      message: "Testing failed Lovable API send.",
-    });
-
-    expect(result.sent).toBe(false);
-    expect(result.reason).toContain("Lovable API status 401");
+    expect(result.reason).toContain("RESEND_API_KEY environment variable is not configured");
   });
 
   test("sends email via Resend API when RESEND_API_KEY is configured", async () => {
