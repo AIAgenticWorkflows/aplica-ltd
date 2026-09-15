@@ -1,14 +1,14 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
-const contactSchema = z.object({
+export const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Enter a valid email address").max(255),
   company: z.string().trim().max(120).optional().or(z.literal("")),
   message: z.string().trim().min(10, "Please add a few more details").max(2000),
 });
 
-async function sendNotificationEmail(payload: {
+export async function sendNotificationEmail(payload: {
   name: string;
   email: string;
   company?: string;
@@ -109,6 +109,11 @@ async function sendNotificationEmail(payload: {
       } else {
         const errText = await response.text();
         console.error("Resend API call returned non-OK status:", response.status, errText);
+        if (fromEmail.includes("onboarding@resend.dev")) {
+          console.warn(
+            "[contact.functions] Using onboarding@resend.dev with Resend restricts delivery only to your Resend account email. Verify a custom domain in Resend or set RESEND_FROM_EMAIL to send to info@aplica.biz.",
+          );
+        }
         return { sent: false, reason: `Resend API status ${response.status}: ${errText}` };
       }
     } catch (err: unknown) {
