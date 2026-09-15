@@ -241,7 +241,9 @@ function WorkPage() {
                 className="flex flex-col rounded-2xl border border-border bg-background p-8"
               >
                 <h3 className="text-xl font-bold text-deep">{e.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{e.body}</p>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {e.body}
+                </p>
                 <p className="mt-5 border-t border-border pt-4 text-xs font-bold uppercase tracking-widest text-primary">
                   {e.meta}
                 </p>

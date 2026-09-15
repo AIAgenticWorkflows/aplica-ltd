@@ -66,7 +66,12 @@ const cyclingWords = ["Precision.", "Scale.", "Agility.", "Precision."];
 
 const stats = [
   { value: 20, suffix: " yrs", label: "Founder's industry experience", color: "text-brand-blue" },
-  { value: 1, suffix: "M+", label: "Monthly users on platforms delivered", color: "text-brand-red" },
+  {
+    value: 1,
+    suffix: "M+",
+    label: "Monthly users on platforms delivered",
+    color: "text-brand-red",
+  },
   { value: 5, suffix: "", label: "Countries delivered in", color: "text-brand-green" },
   { value: 17, suffix: "", label: "Largest team led", color: "text-brand-gold" },
 ];

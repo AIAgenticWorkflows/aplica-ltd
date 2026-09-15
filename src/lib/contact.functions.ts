@@ -13,9 +13,12 @@ async function sendNotificationEmail(payload: {
   email: string;
   company?: string;
   message: string;
-}) {
+}): Promise<{ sent: boolean; reason?: string }> {
   const lovableApiKey = process.env.LOVABLE_API_KEY;
   const resendApiKey = process.env.RESEND_API_KEY;
+  const recipientEmail = process.env.NOTIFICATION_EMAIL || "info@aplica.biz";
+  const fromEmail =
+    process.env.RESEND_FROM_EMAIL || "Aplica Website Contact <onboarding@resend.dev>";
 
   const subject = `New Contact Form Submission from ${payload.name}`;
   const htmlContent = `
@@ -39,13 +42,14 @@ async function sendNotificationEmail(payload: {
         const emailSdk = await import("@lovable.dev/email-js");
         if (emailSdk && typeof emailSdk.sendEmail === "function") {
           await emailSdk.sendEmail({
-            to: "info@aplica.biz",
+            to: recipientEmail,
             subject,
             html: htmlContent,
             text: textContent,
             replyTo: payload.email,
           });
           sent = true;
+          return { sent: true };
         }
       } catch {
         // SDK module not installed, fallback to direct REST fetch below
@@ -59,22 +63,27 @@ async function sendNotificationEmail(payload: {
             Authorization: `Bearer ${lovableApiKey}`,
           },
           body: JSON.stringify({
-            to: "info@aplica.biz",
+            to: recipientEmail,
             subject,
             html: htmlContent,
             text: textContent,
             replyTo: payload.email,
           }),
         });
-        if (!response.ok) {
+
+        if (response.ok) {
+          return { sent: true };
+        } else {
           const errText = await response.text();
           console.error("Lovable email API call returned non-OK status:", response.status, errText);
+          return { sent: false, reason: `Lovable API status ${response.status}: ${errText}` };
         }
       }
-    } catch (err) {
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
       console.error("Failed to send notification email via Lovable API:", err);
+      return { sent: false, reason: msg };
     }
-    return;
   }
 
   if (resendApiKey) {
@@ -86,8 +95,8 @@ async function sendNotificationEmail(payload: {
           Authorization: `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
-          from: "Aplica Website Contact <onboarding@resend.dev>",
-          to: ["info@aplica.biz"],
+          from: fromEmail,
+          to: [recipientEmail],
           reply_to: payload.email,
           subject,
           html: htmlContent,
@@ -95,24 +104,33 @@ async function sendNotificationEmail(payload: {
         }),
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        return { sent: true };
+      } else {
         const errText = await response.text();
         console.error("Resend API call returned non-OK status:", response.status, errText);
+        return { sent: false, reason: `Resend API status ${response.status}: ${errText}` };
       }
-    } catch (err) {
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
       console.error("Failed to send notification email via Resend API:", err);
+      return { sent: false, reason: msg };
     }
-    return;
   }
 
-  console.warn(
-    "[contact.functions] Neither LOVABLE_API_KEY nor RESEND_API_KEY environment variable is configured. Message saved to database, but notification email was not sent."
-  );
+  const warnMsg =
+    "[contact.functions] Neither LOVABLE_API_KEY nor RESEND_API_KEY environment variable is configured. Notification email was not sent.";
+  console.warn(warnMsg);
+  return {
+    sent: false,
+    reason: "Neither LOVABLE_API_KEY nor RESEND_API_KEY environment variable is configured.",
+  };
 }
 
 export const submitContactMessage = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => contactSchema.parse(data))
+  .validator((data: unknown) => contactSchema.parse(data))
   .handler(async ({ data }) => {
+    let dbSaved = false;
     try {
       const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
@@ -129,17 +147,24 @@ export const submitContactMessage = createServerFn({ method: "POST" })
 
       if (error) {
         console.error("contact insert failed:", error);
+      } else {
+        dbSaved = true;
       }
     } catch (err) {
       console.error("Supabase storage omitted or failed:", err);
     }
 
-    await sendNotificationEmail({
+    const emailResult = await sendNotificationEmail({
       name: data.name,
       email: data.email,
       company: data.company,
       message: data.message,
     });
 
-    return { ok: true as const };
+    return {
+      ok: true as const,
+      dbSaved,
+      emailSent: emailResult.sent,
+      emailReason: emailResult.reason,
+    };
   });

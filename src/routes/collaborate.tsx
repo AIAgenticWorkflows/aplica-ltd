@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { ContactForm } from "@/components/contact-form";
 
-
 export const Route = createFileRoute("/collaborate")({
   component: CollaboratePage,
   head: () => ({
@@ -75,7 +74,8 @@ function CollaboratePage() {
         <div className="mt-14">
           <h2 className="text-3xl text-deep">Send us a message</h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            Tell us a little about what you're working on and we'll get back to you at info@aplica.biz.
+            Tell us a little about what you're working on and we'll get back to you at
+            info@aplica.biz.
           </p>
           <div className="mt-6 max-w-2xl">
             <ContactForm />
