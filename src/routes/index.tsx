@@ -233,10 +233,6 @@ function Index() {
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
               The experience behind Aplica
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-secondary/70 md:text-base">
-              Aplica was founded by Nisha Appanah, and the track record below is his — two decades of
-              hands-on delivery we bring to every engagement.
-            </p>
           </Reveal>
           <div className="mt-10 grid grid-cols-2 gap-8 text-center md:grid-cols-4">
             {stats.map((s, i) => (
