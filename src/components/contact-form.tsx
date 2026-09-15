@@ -31,24 +31,19 @@ export function ContactForm() {
 
     setPending(true);
 
-    const mailtoSubject = encodeURIComponent(`Inquiry from ${payload.name}`);
-    const mailtoBody = encodeURIComponent(
-      `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company || "N/A"}\n\nMessage:\n${payload.message}`
-    );
-    const mailtoUrl = `mailto:info@aplica.biz?subject=${mailtoSubject}&body=${mailtoBody}`;
-
     try {
       await send({ data: payload });
       setSent(true);
       form.reset();
-      toast.success("Thanks — your message has been saved.");
-
-      // Open email client with pre-filled details as client fallback
-      window.location.href = mailtoUrl;
+      toast.success("Thanks — your message has been sent!");
     } catch {
-      // If server function submission fails, still offer to launch mail client directly
-      window.location.href = mailtoUrl;
-      toast.info("Opening your email client to complete sending your message.");
+      // Fallback: If server endpoint experiences an issue, open pre-filled mailto
+      const mailtoSubject = encodeURIComponent(`Inquiry from ${payload.name}`);
+      const mailtoBody = encodeURIComponent(
+        `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company || "N/A"}\n\nMessage:\n${payload.message}`
+      );
+      window.location.href = `mailto:info@aplica.biz?subject=${mailtoSubject}&body=${mailtoBody}`;
+      toast.info("Opening your email app to complete sending your message.");
     } finally {
       setPending(false);
     }
@@ -105,7 +100,7 @@ export function ContactForm() {
 
       {sent && (
         <p className="mt-4 text-sm text-muted-foreground">
-          Message submitted — if your email app didn't open automatically, feel free to email info@aplica.biz directly.
+          Message sent — we'll reply from info@aplica.biz shortly.
         </p>
       )}
     </form>
