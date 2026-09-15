@@ -24,7 +24,8 @@ export function ContactForm() {
 
     const next: Errors = {};
     if (!payload.name) next.name = "Please tell us your name.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) next.email = "Enter a valid email address.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email))
+      next.email = "Enter a valid email address.";
     if (payload.message.length < 10) next.message = "Please add a few more details.";
     setErrors(next);
     if (Object.keys(next).length > 0) return;
@@ -32,10 +33,14 @@ export function ContactForm() {
     setPending(true);
 
     try {
-      await send({ data: payload });
+      const res = await send({ data: payload });
       setSent(true);
       form.reset();
-      toast.success("Thanks — your message has been sent!");
+      if (res.emailSent) {
+        toast.success("Thanks, your message has been sent!");
+      } else {
+        toast.success("Thanks! Your message was received.");
+      }
     } catch {
       toast.error("Something went wrong. Please try again.");
     } finally {
@@ -60,7 +65,14 @@ export function ContactForm() {
           <label htmlFor="email" className="text-sm font-medium text-foreground">
             Email
           </label>
-          <input id="email" name="email" type="email" maxLength={255} className={field} autoComplete="email" />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            maxLength={255}
+            className={field}
+            autoComplete="email"
+          />
           {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
         </div>
       </div>
@@ -69,7 +81,13 @@ export function ContactForm() {
         <label htmlFor="company" className="text-sm font-medium text-foreground">
           Company <span className="text-muted-foreground">(optional)</span>
         </label>
-        <input id="company" name="company" maxLength={120} className={field} autoComplete="organization" />
+        <input
+          id="company"
+          name="company"
+          maxLength={120}
+          className={field}
+          autoComplete="organization"
+        />
       </div>
 
       <div className="mt-4">
@@ -88,7 +106,7 @@ export function ContactForm() {
 
       {sent && (
         <p className="mt-4 text-sm text-muted-foreground">
-          Message received — we'll reply from info@aplica.biz shortly.
+          Message received: we'll reply from info@aplica.biz shortly.
         </p>
       )}
     </form>
