@@ -30,13 +30,25 @@ export function ContactForm() {
     if (Object.keys(next).length > 0) return;
 
     setPending(true);
+
+    const mailtoSubject = encodeURIComponent(`Inquiry from ${payload.name}`);
+    const mailtoBody = encodeURIComponent(
+      `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company || "N/A"}\n\nMessage:\n${payload.message}`
+    );
+    const mailtoUrl = `mailto:info@aplica.biz?subject=${mailtoSubject}&body=${mailtoBody}`;
+
     try {
       await send({ data: payload });
       setSent(true);
       form.reset();
-      toast.success("Thanks — your message is on its way to us.");
+      toast.success("Thanks — your message has been saved.");
+
+      // Open email client with pre-filled details as client fallback
+      window.location.href = mailtoUrl;
     } catch {
-      toast.error("Something went wrong. Please try again or email info@aplica.biz.");
+      // If server function submission fails, still offer to launch mail client directly
+      window.location.href = mailtoUrl;
+      toast.info("Opening your email client to complete sending your message.");
     } finally {
       setPending(false);
     }
@@ -79,13 +91,21 @@ export function ContactForm() {
         {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
       </div>
 
-      <button type="submit" disabled={pending} className="btn-primary mt-6 disabled:opacity-60">
-        {pending ? "Sending…" : "Send message"}
-      </button>
+      <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
+        <button type="submit" disabled={pending} className="btn-primary disabled:opacity-60">
+          {pending ? "Sending…" : "Send message"}
+        </button>
+        <a
+          href="mailto:info@aplica.biz"
+          className="text-sm font-medium text-primary hover:underline self-center"
+        >
+          Or email info@aplica.biz directly
+        </a>
+      </div>
 
       {sent && (
         <p className="mt-4 text-sm text-muted-foreground">
-          Message received — we'll reply from info@aplica.biz shortly.
+          Message submitted — if your email app didn't open automatically, feel free to email info@aplica.biz directly.
         </p>
       )}
     </form>
