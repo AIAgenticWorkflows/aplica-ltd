@@ -124,6 +124,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 </a>
               </li>
               <li>
+                <a href="tel:+23059420144" className="transition-colors hover:text-white">
+                  +230 5942 0144
+                </a>
+              </li>
+              <li className="text-secondary/70">
+                15, Issackhan Lane, Coromandel
+              </li>
+              <li>
                 <Link to="/collaborate" className="transition-colors hover:text-white">
                   Work with us
                 </Link>
