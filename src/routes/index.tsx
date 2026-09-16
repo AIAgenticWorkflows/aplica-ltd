@@ -315,10 +315,10 @@ function Index() {
               delay={400}
               className="flex flex-col items-center justify-center rounded-2xl bg-deep p-8 text-center"
             >
-              <h3 className="mb-3 text-xl font-bold text-white">Training & Speaking</h3>
+              <h3 className="mb-3 text-xl font-bold text-white">Training</h3>
               <p className="mb-6 text-sm leading-relaxed text-secondary/70">
-                Conference talks and hands-on sessions on AI agents, data privacy and robotics for
-                teams and communities.
+                Hands-on sessions on AI agents, data privacy and robotics for teams, schools and
+                communities.
               </p>
               <Link
                 to="/collaborate"
