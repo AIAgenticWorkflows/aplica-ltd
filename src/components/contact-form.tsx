@@ -1,9 +1,20 @@
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
+import { CheckCircle2, Send } from "lucide-react";
 import { toast } from "sonner";
 import { submitContactMessage } from "@/lib/contact.functions";
 
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
+
+const baseField =
+  "mt-2 w-full rounded-xl border bg-background px-4 py-3 text-[15px] text-foreground outline-none transition-all duration-200 placeholder:text-muted-foreground/60";
+
+const field = (invalid?: boolean) =>
+  invalid
+    ? `${baseField} border-destructive/60 focus:border-destructive focus:ring-4 focus:ring-destructive/10`
+    : `${baseField} border-border focus:border-primary focus:ring-4 focus:ring-primary/15`;
+
+const labelCls = "text-sm font-semibold text-deep";
 
 export function ContactForm() {
   const send = useServerFn(submitContactMessage);
@@ -48,21 +59,47 @@ export function ContactForm() {
     }
   }
 
-  const field =
-    "mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-primary";
+  if (sent) {
+    return (
+      <div className="surface-card flex flex-col items-center px-6 py-12 text-center md:py-16">
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-green/10">
+          <CheckCircle2 className="h-7 w-7 text-brand-green" aria-hidden />
+        </div>
+        <h3 className="mt-5 text-xl font-bold text-deep">Message received</h3>
+        <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
+          Thank you for reaching out — we'll get back to you from info@aplica.biz shortly.
+        </p>
+        <button
+          type="button"
+          onClick={() => setSent(false)}
+          className="btn-secondary mt-6"
+        >
+          Send another message
+        </button>
+      </div>
+    );
+  }
 
   return (
-    <form onSubmit={onSubmit} className="surface-card p-6 md:p-8" noValidate>
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={onSubmit} className="surface-card p-6 sm:p-8" noValidate>
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-x-4">
         <div>
-          <label htmlFor="name" className="text-sm font-medium text-foreground">
+          <label htmlFor="name" className={labelCls}>
             Name
           </label>
-          <input id="name" name="name" maxLength={100} className={field} autoComplete="name" />
-          {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+          <input
+            id="name"
+            name="name"
+            maxLength={100}
+            placeholder="Your full name"
+            autoComplete="name"
+            aria-invalid={Boolean(errors.name)}
+            className={field(Boolean(errors.name))}
+          />
+          {errors.name && <p className="mt-1.5 text-xs text-destructive">{errors.name}</p>}
         </div>
         <div>
-          <label htmlFor="email" className="text-sm font-medium text-foreground">
+          <label htmlFor="email" className={labelCls}>
             Email
           </label>
           <input
@@ -70,45 +107,58 @@ export function ContactForm() {
             name="email"
             type="email"
             maxLength={255}
-            className={field}
+            placeholder="you@company.com"
             autoComplete="email"
+            aria-invalid={Boolean(errors.email)}
+            className={field(Boolean(errors.email))}
           />
-          {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+          {errors.email && <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>}
         </div>
       </div>
 
-      <div className="mt-4">
-        <label htmlFor="company" className="text-sm font-medium text-foreground">
-          Company <span className="text-muted-foreground">(optional)</span>
+      <div className="mt-5">
+        <label htmlFor="company" className={labelCls}>
+          Company <span className="font-normal text-muted-foreground">(optional)</span>
         </label>
         <input
           id="company"
           name="company"
           maxLength={120}
-          className={field}
+          placeholder="Where you work"
           autoComplete="organization"
+          className={field()}
         />
       </div>
 
-      <div className="mt-4">
-        <label htmlFor="message" className="text-sm font-medium text-foreground">
+      <div className="mt-5">
+        <label htmlFor="message" className={labelCls}>
           How can we help?
         </label>
-        <textarea id="message" name="message" rows={5} maxLength={2000} className={field} />
-        {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
+        <textarea
+          id="message"
+          name="message"
+          rows={6}
+          maxLength={2000}
+          placeholder="Tell us a little about your project, the problem you're solving, or the question you have…"
+          aria-invalid={Boolean(errors.message)}
+          className={`${field(Boolean(errors.message))} resize-y`}
+        />
+        {errors.message && <p className="mt-1.5 text-xs text-destructive">{errors.message}</p>}
       </div>
 
-      <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
-        <button type="submit" disabled={pending} className="btn-primary disabled:opacity-60">
+      <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p className="order-2 text-xs leading-relaxed text-muted-foreground sm:order-1">
+          We reply within one business day.
+        </p>
+        <button
+          type="submit"
+          disabled={pending}
+          className="btn-primary order-1 w-full justify-center sm:order-2 sm:w-auto disabled:opacity-60"
+        >
+          <Send className="h-4 w-4" aria-hidden />
           {pending ? "Sending…" : "Send message"}
         </button>
       </div>
-
-      {sent && (
-        <p className="mt-4 text-sm text-muted-foreground">
-          Message received: we'll reply from info@aplica.biz shortly.
-        </p>
-      )}
     </form>
   );
 }

@@ -11,13 +11,13 @@ export const contactSchema = z.object({
 export async function sendNotificationEmail(payload: {
   name: string;
   email: string;
-  company?: string;
+  company?: string | undefined;
   message: string;
 }): Promise<{ sent: boolean; reason?: string }> {
-  const resendApiKey = process.env.RESEND_API_KEY;
-  const recipientEmail = process.env.NOTIFICATION_EMAIL || "info@aplica.biz";
+  const resendApiKey = process.env['RESEND_API_KEY'];
+  const recipientEmail = process.env['NOTIFICATION_EMAIL'] || "info@aplica.biz";
   const fromEmail =
-    process.env.RESEND_FROM_EMAIL || "Aplica Website Contact <onboarding@resend.dev>";
+    process.env['RESEND_FROM_EMAIL'] || "Aplica Website Contact <onboarding@resend.dev>";
 
   const subject = `New Contact Form Submission from ${payload.name}`;
   const htmlContent = `

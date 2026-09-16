@@ -38,7 +38,7 @@ export const Route = createFileRoute("/work")({
             "Software Engineering",
             "Platform Migration",
             "Rapid Prototyping",
-            "Training & Speaking",
+            "Training",
             "Building Corporate Websites",
             "Short Term Rental Intelligence",
             "Client Discovery Sessions",
@@ -139,14 +139,14 @@ const services = [
     ],
   },
   {
-    title: "Training & Speaking",
-    body: "Conference talks and hands-on sessions on AI agents, data privacy and robotics for teams, schools and communities.",
+    title: "Training",
+    body: "Hands-on training on AI agents, data privacy and robotics, delivered for teams, schools and communities.",
     accent: "brand-gold",
     points: [
       "AI agent workshops",
       "Data privacy sessions",
       "Robotics and STEM outreach",
-      "Conference talks",
+      "Team enablement sessions",
     ],
   },
 ];

@@ -37,9 +37,9 @@ describe("sendNotificationEmail", () => {
 
   beforeEach(() => {
     process.env = { ...originalEnv };
-    delete process.env.RESEND_API_KEY;
-    delete process.env.NOTIFICATION_EMAIL;
-    delete process.env.RESEND_FROM_EMAIL;
+    delete process.env['RESEND_API_KEY'];
+    delete process.env['NOTIFICATION_EMAIL'];
+    delete process.env['RESEND_FROM_EMAIL'];
   });
 
   afterEach(() => {
@@ -59,8 +59,8 @@ describe("sendNotificationEmail", () => {
   });
 
   test("sends email via Resend API when RESEND_API_KEY is configured", async () => {
-    process.env.RESEND_API_KEY = "re_test_key_123";
-    process.env.NOTIFICATION_EMAIL = "info@aplica.biz";
+    process.env['RESEND_API_KEY'] = "re_test_key_123";
+    process.env['NOTIFICATION_EMAIL'] = "info@aplica.biz";
 
     let capturedUrl = "";
     let capturedHeaders: HeadersInit | undefined;
@@ -84,12 +84,12 @@ describe("sendNotificationEmail", () => {
     expect((capturedHeaders as Record<string, string>)["Authorization"]).toBe(
       "Bearer re_test_key_123",
     );
-    expect(capturedBody.to).toEqual(["info@aplica.biz"]);
-    expect(capturedBody.reply_to).toBe("bob@example.com");
+    expect(capturedBody['to']).toEqual(["info@aplica.biz"]);
+    expect(capturedBody['reply_to']).toBe("bob@example.com");
   });
 
   test("handles failure response from Resend API (e.g., onboarding domain error)", async () => {
-    process.env.RESEND_API_KEY = "re_test_key_123";
+    process.env['RESEND_API_KEY'] = "re_test_key_123";
 
     global.fetch = (async () => {
       return new Response(
