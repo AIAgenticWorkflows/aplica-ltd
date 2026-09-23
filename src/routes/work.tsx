@@ -178,6 +178,17 @@ const industries = [
   "Education & Technical Training",
 ];
 
+const countries = [
+  "Denmark",
+  "Romania",
+  "Kenya",
+  "Senegal",
+  "Nigeria",
+  "Mauritius",
+  "Zimbabwe",
+  "Vietnam",
+];
+
 function WorkPage() {
   return (
     <SiteLayout>
@@ -271,6 +282,21 @@ function WorkPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={480}>
+            <p className="mt-12 text-sm font-bold uppercase tracking-widest text-primary">
+              Where we've delivered
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {countries.map((c) => (
+                <span
+                  key={c}
+                  className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-deep"
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
