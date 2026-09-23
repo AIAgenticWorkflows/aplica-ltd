@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Linkedin } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
 import { ContactForm } from "@/components/contact-form";
 
@@ -83,73 +84,77 @@ function CollaboratePage() {
             </div>
           </div>
 
-          <aside className="surface-card p-6 sm:p-8">
-            <h2 className="text-lg font-bold text-deep">Contact details</h2>
-            <ul className="mt-5 space-y-5">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-blue/10 text-sm font-bold text-brand-blue">
-                  @
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                    Email
-                  </p>
-                  <a
-                    href="mailto:info@aplica.biz"
-                    className="mt-0.5 block break-words text-sm font-semibold text-deep transition-colors hover:text-primary"
-                  >
-                    info@aplica.biz
-                  </a>
+          <aside className="lg:sticky lg:top-28">
+            <div className="relative overflow-hidden rounded-2xl bg-brand-navy p-7 shadow-[0_24px_60px_-30px_color-mix(in_oklab,var(--color-deep)_70%,transparent)] sm:p-8">
+              <div
+                className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-brand-sky/15 blur-3xl"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -bottom-20 -left-20 h-44 w-44 rounded-full bg-brand-gold/10 blur-3xl"
+                aria-hidden
+              />
+              <div className="relative">
+                <h2 className="border-b border-background/10 pb-5 text-lg font-bold text-background">
+                  Contact details
+                </h2>
+                <ul className="mt-6 space-y-6">
+                  <li className="group">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-sky">
+                      Email
+                    </p>
+                    <a
+                      href="mailto:info@aplica.biz"
+                      className="mt-1 block break-words text-[15px] font-semibold text-background transition-colors group-hover:text-brand-gold"
+                    >
+                      info@aplica.biz
+                    </a>
+                  </li>
+                  <li className="group">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-sky">
+                      Phone
+                    </p>
+                    <a
+                      href="tel:+23059420144"
+                      className="mt-1 block text-[15px] font-semibold text-background transition-colors group-hover:text-brand-gold"
+                    >
+                      +230 5942 0144
+                    </a>
+                  </li>
+                  <li className="group">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-sky">
+                      Address
+                    </p>
+                    <p className="mt-1 text-[15px] font-semibold leading-relaxed text-background">
+                      15, Issackhan Lane, Coromandel
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-sky">
+                      LinkedIn
+                    </p>
+                    <a
+                      href="https://www.linkedin.com/company/aplica-ltd/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-2 inline-flex items-center gap-2 rounded-xl border border-background/10 bg-brand-blue/40 px-4 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-brand-blue"
+                    >
+                      <Linkedin className="h-4 w-4 text-brand-gold" aria-hidden />
+                      Aplica on LinkedIn
+                    </a>
+                  </li>
+                </ul>
+                <div className="mt-8 flex items-center gap-2.5 border-t border-background/10 pt-5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-green opacity-60" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-green" />
+                  </span>
+                  <span className="text-xs font-semibold uppercase tracking-widest text-background/60">
+                    We reply within one business day
+                  </span>
                 </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-green/10 text-sm font-bold text-brand-green">
-                  ☎
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                    Phone
-                  </p>
-                  <a
-                    href="tel:+23059420144"
-                    className="mt-0.5 block text-sm font-semibold text-deep transition-colors hover:text-primary"
-                  >
-                    +230 5942 0144
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-gold/10 text-sm font-bold text-brand-gold">
-                  ⌖
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                    Address
-                  </p>
-                  <p className="mt-0.5 text-sm font-semibold text-deep">
-                    15, Issackhan Lane, Coromandel
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-sky/10 text-sm font-bold text-brand-sky">
-                  in
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                    LinkedIn
-                  </p>
-                  <a
-                    href="https://www.linkedin.com/company/aplica-ltd/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-0.5 block text-sm font-semibold text-deep transition-colors hover:text-primary"
-                  >
-                    Aplica on LinkedIn
-                  </a>
-                </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </aside>
         </div>
       </section>
