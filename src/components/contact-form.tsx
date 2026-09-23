@@ -146,14 +146,11 @@ export function ContactForm() {
         {errors.message && <p className="mt-1.5 text-xs text-destructive">{errors.message}</p>}
       </div>
 
-      <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="order-2 text-xs leading-relaxed text-muted-foreground sm:order-1">
-          We reply within one business day.
-        </p>
+      <div className="mt-7">
         <button
           type="submit"
           disabled={pending}
-          className="btn-primary order-1 w-full justify-center sm:order-2 sm:w-auto disabled:opacity-60"
+          className="btn-primary w-full justify-center disabled:opacity-60"
         >
           <Send className="h-4 w-4" aria-hidden />
           {pending ? "Sending…" : "Send message"}
