@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "AI agents and automation, product management, software engineering, platform migration and rapid prototyping: 20 years of experience across five countries.",
+          "AI agents and automation, product management, software engineering, platform migration and rapid prototyping: 20 years of experience across eight countries.",
       },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
@@ -72,7 +72,7 @@ const stats = [
     label: "Monthly users on platforms delivered",
     color: "text-brand-red",
   },
-  { value: 5, suffix: "", label: "Countries delivered in", color: "text-brand-green" },
+  { value: 8, suffix: "", label: "Countries delivered in", color: "text-brand-green" },
   { value: 17, suffix: "", label: "Largest team led", color: "text-brand-gold" },
 ];
 
@@ -149,6 +149,17 @@ const industries = [
   "Payments & Smartcard Solutions",
   "Workflow & ERP Systems",
   "Education & Technical Training",
+];
+
+const countries = [
+  "Denmark",
+  "Romania",
+  "Kenya",
+  "Senegal",
+  "Nigeria",
+  "Mauritius",
+  "Zimbabwe",
+  "Vietnam",
 ];
 
 const process = [
@@ -251,6 +262,18 @@ function Index() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={360}>
+            <p className="mt-10 text-center text-sm font-semibold uppercase tracking-widest text-secondary/50">
+              Delivered in
+            </p>
+            <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
+              {countries.map((c) => (
+                <span key={c} className="text-sm font-medium text-secondary/80">
+                  {c}
+                </span>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
