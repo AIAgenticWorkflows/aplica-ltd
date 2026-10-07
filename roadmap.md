@@ -9,3 +9,8 @@
 - [x] Expand Our Work page to cover full service offering
 - [x] Remove "Speaking" from the Training service (Training only)
 - [x] Redesign contact form + Collaborate layout (contact details card, responsive on mobile)
+- [x] Drop the Home menu item (the logo links home) and rename Our Work to Our Services at /services, with /work redirecting
+- [x] Rebuild the About page as a company page: facts at a glance, story, the experience behind our services, client testimonial and values
+- [x] Keep the About page corporate: founder photo plus high-level experience that gives Aplica credibility, with no CV-level detail (no personal bio, talk list, education, certifications or employer names)
+- [x] Drop the founded-and-relaunched timeline from the About page: the founding year stays as a single company fact, with no story section
+- [x] State the founding year only across the site: no "relaunched in 2024" in the homepage FAQ data or llms.txt
