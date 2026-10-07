@@ -67,7 +67,7 @@ export function ContactForm() {
         </div>
         <h3 className="mt-5 text-xl font-bold text-deep">Message received</h3>
         <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-          Thank you for reaching out — we'll get back to you from info@aplica.biz shortly.
+          Thank you for reaching out. We'll get back to you from info@aplica.biz shortly.
         </p>
         <button
           type="button"
