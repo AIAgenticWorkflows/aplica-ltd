@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
+import { siteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/services")({
   component: ServicesPage,
@@ -10,7 +11,7 @@ export const Route = createFileRoute("/services")({
       {
         name: "description",
         content:
-          "Aplica's full service range: AI agents and automation, product management, software engineering, platform migration, rapid prototyping, training and corporate websites.",
+          "Aplica's services: AI agents and automation, product management, software engineering, platform migration, rapid prototyping, training and corporate websites.",
       },
       {
         property: "og:title",
@@ -21,10 +22,10 @@ export const Route = createFileRoute("/services")({
         content:
           "Explore every service Aplica offers, the industries we serve and the way we deliver work in short, measurable phases.",
       },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: siteUrl("/services") },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: siteUrl("/services") }],
     scripts: [
       {
         type: "application/ld+json",

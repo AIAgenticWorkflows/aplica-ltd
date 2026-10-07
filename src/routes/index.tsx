@@ -3,66 +3,83 @@ import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
 import { CountUp } from "@/components/count-up";
 import logo from "@/assets/aplica-logo.png";
+import { ORGANIZATION_ID, siteUrl } from "@/lib/site";
+
+// Shown on the page and sent to search engines as structured data, so the two
+// can never drift apart.
+const faqs = [
+  {
+    question: "What does Aplica do?",
+    answer:
+      "Aplica is a technology consultancy founded in 2015. We deliver AI agents and automation, product management, custom software engineering, platform migration and rapid prototyping, drawing on our founder's 20 years of experience in software engineering, product leadership and applied AI.",
+  },
+  {
+    question: "Where is Aplica based?",
+    answer:
+      "Aplica is based in Coromandel, Mauritius. We have delivered solutions in eight countries: Denmark, Romania, Kenya, Senegal, Nigeria, Mauritius, Zimbabwe and Vietnam.",
+  },
+  {
+    question: "Which industries does Aplica serve?",
+    answer:
+      "Our delivery experience covers short term rentals and villa management, property marketplaces and real estate portals, university and student housing systems, payment and smartcard solutions, and workflow and ERP systems for business operations.",
+  },
+  {
+    question: "Can Aplica build AI agents for my business?",
+    answer:
+      "Yes. We build agent-based automation in n8n and modern AI tooling, embedded directly into the workflows that slow your team down. Typical work includes inquiry and message automation, prompt engineering and evaluation, and document and data extraction.",
+  },
+  {
+    question: "How can I work with Aplica?",
+    answer:
+      "Start with a discovery session through the Collaborate page, or reach out on LinkedIn. We scope the work, agree outcomes and deliver in short, measurable phases.",
+  },
+];
+
+const pageTitle = "Aplica: AI Automation and Software Consultancy in Mauritius";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Aplica: Custom solutions, built around your needs" },
+      { title: pageTitle },
       {
         name: "description",
         content:
-          "Aplica is a technology consultancy built on its founder's 20 years of software engineering, product leadership and AI automation experience across platforms serving over a million monthly users.",
+          "Aplica is a technology and AI consultancy in Mauritius. We build AI agents and automation, custom software and product strategy, backed by 20 years of delivery.",
       },
-      { property: "og:title", content: "Aplica: Custom solutions, built around your needs" },
+      { property: "og:title", content: pageTitle },
       {
         property: "og:description",
         content:
           "AI agents and automation, product management, software engineering, platform migration and rapid prototyping: 20 years of experience across eight countries.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: siteUrl("/") },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: siteUrl("/") }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "What does Aplica do?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Aplica is a technology consultancy founded in 2015. We deliver AI agents and automation, product management, custom software engineering, platform migration and rapid prototyping, drawing on our founder's 20 years of experience in software engineering, product leadership and applied AI.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Which industries does Aplica serve?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Our delivery experience covers short term rentals and villa management, property marketplaces and real estate portals, university and student housing systems, payment and smartcard solutions, and workflow and ERP systems for business operations.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "How can I work with Aplica?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Start with a discovery session through the Collaborate page, or reach out on LinkedIn. We scope the work, agree outcomes and deliver in short, measurable phases.",
-              },
-            },
-          ],
+          "@id": `${siteUrl("/")}#faq`,
+          about: { "@id": ORGANIZATION_ID },
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: { "@type": "Answer", text: f.answer },
+          })),
         }),
       },
     ],
   }),
 });
 
-const cyclingWords = ["Precision.", "Scale.", "Agility.", "Precision."];
+// The headline cycles through these words. A copy of the first one closes the
+// loop; it is drawn by CSS so that search snippets and screen readers get each
+// word once.
+const cyclingWords = ["Precision.", "Scale.", "Agility."];
 
 const stats = [
   { value: 20, suffix: " yrs", label: "Founder's industry experience", color: "text-brand-blue" },
@@ -197,14 +214,23 @@ function Index() {
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="max-w-3xl">
-            <span className="animate-rise eyebrow">Technology &amp; AI consultancy</span>
-            <h1 className="animate-rise mt-4 text-5xl font-extrabold leading-[1.08] text-deep md:text-7xl [animation-delay:0.08s]">
-              Engineering{" "}
-              <span className="text-cycle-window text-primary">
-                <span className="text-cycle-track">
-                  {cyclingWords.map((word, i) => (
-                    <span key={`${word}-${i}`}>{word}</span>
-                  ))}
+            <h1>
+              <span className="animate-rise eyebrow font-sans">
+                Technology &amp; AI consultancy<span className="sr-only">:</span>
+              </span>{" "}
+              <span className="animate-rise mt-4 block text-5xl font-extrabold leading-[1.08] text-deep md:text-7xl [animation-delay:0.08s]">
+                Engineering{" "}
+                <span className="text-cycle-window text-primary">
+                  <span className="text-cycle-track">
+                    {cyclingWords.map((word) => (
+                      <span key={word}>{word} </span>
+                    ))}
+                    <span
+                      aria-hidden
+                      data-word={cyclingWords[0]}
+                      className="after:content-[attr(data-word)]"
+                    />
+                  </span>
                 </span>
               </span>
             </h1>
@@ -266,11 +292,21 @@ function Index() {
             <p className="mt-10 text-center text-sm font-semibold uppercase tracking-widest text-secondary/50">
               Delivered in
             </p>
-            <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
-              {countries.map((c) => (
-                <span key={c} className="text-sm font-medium text-secondary/80">
-                  {c}
-                </span>
+            {/* The row moves. A second copy makes the loop seamless and is hidden
+                from screen readers, which read the list once. */}
+            <div className="marquee mx-auto mt-4 max-w-4xl">
+              {[false, true].map((isCopy) => (
+                <ul key={String(isCopy)} aria-hidden={isCopy} className="marquee-track">
+                  {countries.map((c) => (
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-sm font-semibold text-secondary/80 md:text-base"
+                    >
+                      <span aria-hidden className="h-1 w-1 rounded-full bg-brand-gold/70" />
+                      {c}
+                    </li>
+                  ))}
+                </ul>
               ))}
             </div>
           </Reveal>
@@ -396,6 +432,29 @@ function Index() {
                 <div className="font-display text-3xl font-extrabold text-primary">{p.step}</div>
                 <h3 className="mt-3 text-xl font-bold text-deep">{p.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Questions and answers, from the same list as the structured data */}
+      <section className="px-5 py-16 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <Reveal>
+            <span className="eyebrow">Questions</span>
+            <h2 className="mt-3 text-3xl font-bold text-deep md:text-4xl">
+              What we are asked most
+            </h2>
+            <p className="mt-4 max-w-md text-muted-foreground">
+              Short answers about what we do, where we work and how to get started.
+            </p>
+          </Reveal>
+          <div className="divide-y divide-border border-y border-border">
+            {faqs.map((f, i) => (
+              <Reveal key={f.question} as="article" delay={i * 60} className="py-6">
+                <h3 className="text-lg font-bold text-deep">{f.question}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.answer}</p>
               </Reveal>
             ))}
           </div>

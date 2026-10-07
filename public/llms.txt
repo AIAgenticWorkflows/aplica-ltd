@@ -1,17 +1,30 @@
 # Aplica Ltd
 
-> Aplica designs and builds digital solutions tailored to your business: AI agents and automation, product management, software engineering, platform migration and rapid prototyping, founded on 20 years of hands-on delivery experience.
+> Aplica is a technology and AI consultancy based in Mauritius. It designs and builds digital solutions tailored to each business: AI agents and automation, product management, software engineering, platform migration and rapid prototyping, founded on 20 years of hands-on delivery experience.
 
-Aplica is a technology & AI consultancy founded in 2015, based in Coromandel, Mauritius, and led by its founder, Nisha Appanah. Our services draw on two decades of experience across software engineering, product leadership and applied AI, delivered on platforms serving over a million monthly users.
+Aplica was founded in 2015 and is based in Coromandel, Mauritius. It is led by its founder, Nisha Appanah. Its services draw on two decades of experience across software engineering, product leadership and applied AI, delivered on platforms serving over a million monthly users.
 
-We have delivered solutions in eight countries: Denmark, Romania, Kenya, Senegal, Nigeria, Mauritius, Zimbabwe and Vietnam.
+Aplica has delivered solutions in eight countries: Denmark, Romania, Kenya, Senegal, Nigeria, Mauritius, Zimbabwe and Vietnam.
+
+Sectors served: short term rentals and villa management, property marketplaces and real estate, university and student housing, payments and smartcard solutions, workflow and ERP systems, and education and technical training.
+
+Ways of working: a client discovery session that maps operations and ends with a prioritised list of automation opportunities, scoped project delivery in short phases, or an ongoing partnership for continuous product and engineering support.
+
+## Services
+
+- [AI Agents & Automation](https://www.aplica.biz/services): Agent-based automation built in n8n and modern AI tooling, embedded directly into the workflows that slow a team down.
+- [Product Management](https://www.aplica.biz/services): Roadmaps, discovery and delivery rituals shaped by leading product for a large property marketplace across three countries.
+- [Software Engineering](https://www.aplica.biz/services): Custom web platforms and business systems built on .NET and modern web stacks.
+- [Platform Migration](https://www.aplica.biz/services): Legacy modernisation and migration planning for high-traffic platforms, drawing on founder-led migrations in Kenya and Romania on systems serving over a million unique users a month.
+- [Rapid Prototyping](https://www.aplica.biz/services): Low-code and AI-assisted prototypes that put a working idea in front of stakeholders in days rather than quarters.
+- [Training](https://www.aplica.biz/services): Hands-on training on AI agents, data privacy and robotics, delivered for teams, schools and communities.
 
 ## Pages
 
-- [Home](/): Services, industries served and the experience behind Aplica.
-- [Our Services](/services): The full service range, covering AI agents & automation, product management, software engineering, platform migration, rapid prototyping and training.
-- [About](/about): Company facts, the founder's experience behind our services, a client testimonial and our values.
-- [Collaborate](/collaborate): Contact form, phone, address and LinkedIn.
+- [Home](https://www.aplica.biz/): Services, industries served, common questions and the experience behind Aplica.
+- [Our Services](https://www.aplica.biz/services): The full service range, ways of working and sectors served.
+- [About](https://www.aplica.biz/about): Company facts, the founder's experience behind the services, a client testimonial and the company's values.
+- [Collaborate](https://www.aplica.biz/collaborate): Contact form, phone, address and LinkedIn.
 
 ## Contact
 

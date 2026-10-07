@@ -208,6 +208,8 @@
   }
 }
 
+/* The track holds four lines (three words and a copy of the first), so each
+   step moves it up by a quarter of its own height: exactly one line. */
 @keyframes aplica-text-slide {
   0%,
   22% {
@@ -215,15 +217,15 @@
   }
   28%,
   50% {
-    transform: translateY(-100%);
+    transform: translateY(-25%);
   }
   56%,
   78% {
-    transform: translateY(-200%);
+    transform: translateY(-50%);
   }
   84%,
   100% {
-    transform: translateY(-300%);
+    transform: translateY(-75%);
   }
 }
 
@@ -257,7 +259,11 @@
 @utility text-cycle-window {
   display: inline-flex;
   flex-direction: column;
-  height: 1.1em;
+  /* One line of text plus room below it for descenders (g, y), which would
+     otherwise be cut off. The negative margin keeps the heading's own height
+     as it was. */
+  height: 1.3em;
+  margin-bottom: -0.2em;
   overflow: hidden;
   vertical-align: bottom;
 }
@@ -266,6 +272,46 @@
   display: flex;
   flex-direction: column;
   animation: aplica-text-slide 12s cubic-bezier(0.85, 0, 0.15, 1) infinite;
+
+  /* Every line is exactly as tall as the window, so no sliver of the
+     neighbouring word shows above or below the current one. */
+  & > * {
+    flex: none;
+    height: 1.3em;
+    line-height: 1.1;
+    overflow: hidden;
+  }
+}
+
+/* A row that moves sideways without end (the countries on the homepage).
+   Two identical tracks sit side by side and each slides left by its own
+   width, so the loop has no seam. Hovering pauses it. */
+@keyframes aplica-marquee {
+  to {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+}
+
+@utility marquee {
+  --marquee-gap: 2.5rem;
+  display: flex;
+  gap: var(--marquee-gap);
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+
+  &:hover > * {
+    animation-play-state: paused;
+  }
+}
+
+@utility marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-around;
+  gap: var(--marquee-gap);
+  min-width: 100%;
+  white-space: nowrap;
+  animation: aplica-marquee 40s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -278,8 +324,27 @@
   .animate-rise,
   .animate-float-slow,
   .animate-drift,
-  .text-cycle-track {
+  .text-cycle-track,
+  .marquee-track {
     animation: none !important;
+  }
+
+  /* Without motion the row becomes a plain centred list, shown once. */
+  .marquee {
+    max-width: none;
+    mask-image: none;
+  }
+
+  .marquee-track {
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.5rem;
+    white-space: normal;
+  }
+
+  .marquee-track[aria-hidden="true"] {
+    display: none;
   }
 }
 

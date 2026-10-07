@@ -2,35 +2,38 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Linkedin } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
 import { ContactForm } from "@/components/contact-form";
+import { ORGANIZATION_ID, siteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/collaborate")({
   component: CollaboratePage,
   head: () => ({
     meta: [
-      { title: "Collaborate with Aplica: Partners & Early Testers" },
+      { title: "Contact Aplica in Mauritius: Collaborate With Us" },
       {
         name: "description",
         content:
-          "Partner with Aplica, join as an early tester, or share ideas. We'd love to hear from anyone building the future of AI-assisted decisions.",
+          "Contact Aplica in Coromandel, Mauritius. Send us a message, call +230 5942 0144 or connect on LinkedIn to discuss a project, a partnership or an idea.",
       },
-      { property: "og:title", content: "Collaborate with Aplica: Partners & Early Testers" },
+      { property: "og:title", content: "Contact Aplica in Mauritius: Collaborate With Us" },
       {
         property: "og:description",
         content:
           "Business partners, early testers and idea contributors are welcome. Get in touch with the Aplica team.",
       },
-      { property: "og:url", content: "/collaborate" },
+      { property: "og:url", content: siteUrl("/collaborate") },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/collaborate" }],
+    links: [{ rel: "canonical", href: siteUrl("/collaborate") }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ContactPage",
-          name: "Collaborate with Aplica",
-          url: "/collaborate",
+          "@id": `${siteUrl("/collaborate")}#webpage`,
+          name: "Contact Aplica",
+          url: siteUrl("/collaborate"),
+          about: { "@id": ORGANIZATION_ID },
         }),
       },
     ],

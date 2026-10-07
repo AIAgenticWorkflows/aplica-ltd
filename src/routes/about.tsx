@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
+import { ORGANIZATION_ID, organizationSchema, siteUrl } from "@/lib/site";
 
-const SITE_URL = "https://www.aplica.biz";
 const FOUNDER_PHOTO = "/images/nisha-appanah.webp";
 const FOUNDER_LINKEDIN = "https://www.linkedin.com/in/nishaappanah/";
 
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Aplica is a technology and AI consultancy in Mauritius, founded in 2015. The experience behind our services, what our clients say and the values that guide our work.",
+          "Aplica is a technology and AI consultancy in Mauritius, founded in 2015. The experience behind our services, what clients say and the values that guide us.",
       },
       { property: "og:title", content: pageTitle },
       {
@@ -25,10 +25,10 @@ export const Route = createFileRoute("/about")({
         content:
           "The 20 years of experience behind our services in software engineering, product leadership and AI, what our clients say and the values behind how we work.",
       },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: siteUrl("/about") },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: siteUrl("/about") }],
     scripts: [
       {
         type: "application/ld+json",
@@ -37,43 +37,21 @@ export const Route = createFileRoute("/about")({
           "@graph": [
             {
               "@type": "AboutPage",
-              "@id": `${SITE_URL}/about#webpage`,
-              url: `${SITE_URL}/about`,
+              "@id": `${siteUrl("/about")}#webpage`,
+              url: siteUrl("/about"),
               name: "About Aplica",
-              about: { "@id": `${SITE_URL}/#organization` },
-              mainEntity: { "@id": `${SITE_URL}/#organization` },
+              about: { "@id": ORGANIZATION_ID },
+              mainEntity: { "@id": ORGANIZATION_ID },
             },
             {
-              "@type": "Organization",
-              "@id": `${SITE_URL}/#organization`,
-              name: "Aplica Ltd",
-              alternateName: "Aplica",
-              url: `${SITE_URL}/`,
-              logo: `${SITE_URL}/images/aplica-logo.png`,
-              foundingDate: "2015",
+              ...organizationSchema,
               founder: {
                 "@type": "Person",
                 name: "Nisha Appanah",
                 jobTitle: "Founder",
-                image: `${SITE_URL}${FOUNDER_PHOTO}`,
+                image: siteUrl(FOUNDER_PHOTO),
                 sameAs: [FOUNDER_LINKEDIN],
               },
-              email: "info@aplica.biz",
-              telephone: "+230 5942 0144",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "15, Issackhan Lane",
-                addressLocality: "Coromandel",
-                addressCountry: "MU",
-              },
-              knowsAbout: [
-                "AI agents and automation",
-                "Product management",
-                "Software engineering",
-                "Platform migration",
-                "Rapid prototyping",
-              ],
-              sameAs: ["https://www.linkedin.com/company/aplica-ltd/"],
             },
           ],
         }),
@@ -94,7 +72,6 @@ const highlights = [
     rest: "in three countries, with ownership of its product roadmap",
   },
   { lead: "Teams of up to 17", rest: "across product and engineering" },
-  { lead: "Executive approval", rest: "to advance an AI agent pitched to the C-suite" },
   { lead: "Conference speaker", rest: "on data privacy, AI agents and robotics" },
 ];
 
@@ -277,7 +254,7 @@ function AboutPage() {
               {highlights.map((h) => (
                 <li
                   key={h.lead}
-                  className="border-t border-white/10 py-4 text-sm leading-relaxed text-secondary/80"
+                  className="border-t border-white/10 py-4 text-sm leading-relaxed text-secondary/80 sm:last:odd:col-span-2"
                 >
                   <span className="font-bold text-white">{h.lead}</span> {h.rest}
                 </li>

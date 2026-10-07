@@ -14,3 +14,8 @@
 - [x] Keep the About page corporate: founder photo plus high-level experience that gives Aplica credibility, with no CV-level detail (no personal bio, talk list, education, certifications or employer names)
 - [x] Drop the founded-and-relaunched timeline from the About page: the founding year stays as a single company fact, with no story section
 - [x] State the founding year only across the site: no "relaunched in 2024" in the homepage FAQ data or llms.txt
+- [x] About page: drop the "executive approval" fact (a CV line rather than a company fact)
+- [x] Homepage: the "Delivered in" countries move as a slow row (pauses on hover, stays still when motion is turned off), and the rotating headline word shows every word again
+- [x] Search engines and AI assistants: full canonical and social URLs, the sitemap listed in robots.txt, company and site structured data on every page, a share image, an IndexNow key, and a fuller llms.txt
+- [x] Homepage: search-friendly title and description, a headline that reads cleanly in search snippets, and a visible questions section that matches the FAQ structured data
+- [ ] Off-site: submit the sitemap in Google Search Console and Bing Webmaster Tools, create a Google Business Profile, and list Aplica in consultancy directories
