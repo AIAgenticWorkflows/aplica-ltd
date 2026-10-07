@@ -4,6 +4,7 @@ import { SiteLayout } from "@/components/site-layout";
 import { Reveal } from "@/components/reveal";
 
 const SITE_URL = "https://www.aplica.biz";
+const FOUNDER_PHOTO = "/images/nisha-appanah.webp";
 const FOUNDER_LINKEDIN = "https://www.linkedin.com/in/nishaappanah/";
 
 const pageTitle = "About Aplica: Technology and AI Consultancy in Mauritius";
@@ -54,6 +55,7 @@ export const Route = createFileRoute("/about")({
                 "@type": "Person",
                 name: "Nisha Appanah",
                 jobTitle: "Founder",
+                image: `${SITE_URL}${FOUNDER_PHOTO}`,
                 sameAs: [FOUNDER_LINKEDIN],
               },
               email: "info@aplica.biz",
@@ -98,43 +100,57 @@ const chapters = [
   },
 ];
 
+// The headline facts about the experience behind the company.
+const highlights = [
+  { lead: "20 years", rest: "in software engineering, product management and AI" },
+  {
+    lead: "1M+ monthly users",
+    rest: "and 3M+ sessions on platforms built and modernised",
+  },
+  { lead: "Teams of up to 17", rest: "across product and engineering" },
+  {
+    lead: "Largest property marketplace",
+    rest: "in three countries, with ownership of its product roadmap",
+  },
+  { lead: "Executive approval", rest: "to advance an AI agent pitched to the C-suite" },
+  { lead: "Conference speaker", rest: "on data privacy, AI agents and robotics" },
+];
+
 // Each discipline carries the accent colour of the matching service on /services.
 const disciplines = [
   {
     title: "Software engineering",
-    summary:
-      "Web platforms and business systems for universities, payments and property marketplaces.",
+    summary: "Hands-on, full-stack development of web platforms and business systems.",
     border: "border-t-brand-blue",
     dot: "bg-brand-blue",
     points: [
-      "End-to-end property listing flow deployed across five countries",
-      "Legacy web solution migrated to the latest .NET stack",
-      "WCF services for the PEPPOL project, funded by the European Commission",
-      "Business logic for a smartcard payment web solution",
+      "Full-stack development on .NET and modern web stacks",
+      "Multi-market deployment and internationalisation",
+      "Systems for universities, payments and property marketplaces",
+      "Services for PEPPOL, a project funded by the European Commission",
     ],
     services: "Software Engineering, Platform Migration",
   },
   {
     title: "Product leadership",
-    summary:
-      "Product management for an AI team and for property marketplaces in Kenya, Romania and Senegal.",
+    summary: "Product ownership for marketplaces at scale, from roadmap to delivery.",
     border: "border-t-brand-red",
     dot: "bg-brand-red",
     points: [
-      "Roadmap for the largest property marketplace in three countries",
-      "Two major platform migrations, in Kenya and Romania, on platforms serving over a million unique users a month",
-      "Cross-functional team scaled from 7 to 17 people",
-      "AI agent pitched to the C-suite and approved to advance",
+      "Roadmap ownership from vision through execution",
+      "Marketplace growth across multiple markets",
+      "Two major platform migrations, in Kenya and Romania, without revenue disruption",
+      "C-suite partnership on strategy and investment decisions",
     ],
     services: "Product Management",
   },
   {
     title: "AI and automation",
-    summary: "Agents, automation and prototypes built for real business processes.",
+    summary: "AI agents, automation and rapid prototypes that fit into real business operations.",
     border: "border-t-brand-gold",
     dot: "bg-brand-gold",
     points: [
-      "AI agent in n8n that automates responses to villa rental inquiries",
+      "AI agent built to automate responses to villa rental inquiries",
       "AI consulting agreement with Cybernaptics Ltd",
       "Client discovery sessions that identify AI automation opportunities",
       "Rapid AI prototypes built with low-code tools",
@@ -206,18 +222,7 @@ function AboutPage() {
             <dl className="mt-3 divide-y divide-border">
               <Fact term="Founded">2015, relaunched in 2024</Fact>
               <Fact term="Based in">Coromandel, Mauritius</Fact>
-              <Fact term="Led by">
-                <a
-                  href={FOUNDER_LINKEDIN}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-primary underline decoration-primary/30 decoration-2 underline-offset-4 transition-colors hover:decoration-primary"
-                >
-                  Nisha Appanah
-                  <span className="sr-only"> on LinkedIn, opens in a new tab</span>
-                </a>
-                , founder
-              </Fact>
+              <Fact term="Led by">Nisha Appanah, founder</Fact>
               <Fact term="Delivered in">8 countries across Europe, Africa and Asia</Fact>
               <Fact term="Focus">
                 AI agents and automation, product management and software engineering
@@ -259,17 +264,86 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Experience behind the services */}
+      {/* The experience behind Aplica: founder and headline facts */}
+      <section className="bg-deep px-5 py-16 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[15rem_1fr] lg:gap-20">
+          <Reveal>
+            <figure>
+              <div className="relative mx-auto h-40 w-40 md:h-48 md:w-48">
+                <span
+                  aria-hidden
+                  className="absolute -inset-3 rotate-12 rounded-full border-[6px] border-transparent border-r-brand-gold border-t-brand-gold"
+                />
+                <span
+                  aria-hidden
+                  className="absolute -inset-6 -rotate-6 rounded-full border-[6px] border-transparent border-b-brand-sky border-l-brand-red"
+                />
+                <img
+                  src={FOUNDER_PHOTO}
+                  alt="Nisha Appanah, founder of Aplica"
+                  width={400}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
+                  className="relative h-full w-full rounded-full object-cover"
+                />
+              </div>
+              <figcaption className="mt-10 text-center">
+                <span className="block font-display text-lg font-bold text-white">
+                  Nisha Appanah
+                </span>{" "}
+                <span className="block text-sm text-secondary/70">Founder, Aplica</span>{" "}
+                <a
+                  href={FOUNDER_LINKEDIN}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-2 inline-block text-sm font-semibold text-brand-gold underline decoration-brand-gold/40 underline-offset-4 transition-colors hover:decoration-brand-gold"
+                >
+                  LinkedIn profile
+                  <span className="sr-only"> of Nisha Appanah, opens in a new tab</span>
+                </a>
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          <Reveal delay={90}>
+            <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand-gold">
+              The experience behind Aplica
+            </span>
+            <h2 className="mt-3 max-w-3xl text-balance text-3xl font-bold text-white md:text-4xl">
+              Built on 20 years of software, product and AI
+            </h2>
+            <p className="mt-5 max-w-3xl leading-relaxed text-secondary/80">
+              Aplica is founded and led by Nisha Appanah. Over 20 years she has gone from software
+              engineer to product leader to AI founder: building and modernising platforms at scale,
+              leading cross-functional product and engineering teams, and delivering in countries
+              across Europe, Africa and Asia. Every service we offer comes out of that hands-on
+              experience.
+            </p>
+            <ul className="mt-8 grid gap-x-10 sm:grid-cols-2">
+              {highlights.map((h) => (
+                <li
+                  key={h.lead}
+                  className="border-t border-white/10 py-4 text-sm leading-relaxed text-secondary/80"
+                >
+                  <span className="font-bold text-white">{h.lead}</span> {h.rest}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* What the experience covers */}
       <section className="px-5 py-16 md:py-24">
         <div className="mx-auto max-w-7xl">
           <Reveal className="max-w-2xl">
-            <span className="eyebrow">The experience behind Aplica</span>
-            <h2 className="mt-3 text-3xl font-bold text-deep md:text-4xl">
-              Twenty years, three disciplines
+            <span className="eyebrow">What the experience covers</span>
+            <h2 className="mt-3 text-balance text-3xl font-bold text-deep md:text-4xl">
+              Three disciplines behind our services
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Every service we offer is backed by our founder's 20 years of hands-on work: first in
-              software engineering, then leading product, now building with AI.
+              The same three disciplines sit behind every service we offer.
             </p>
           </Reveal>
 
@@ -311,11 +385,9 @@ function AboutPage() {
       </section>
 
       {/* Client testimonial */}
-      <section className="bg-deep px-5 py-16 md:py-24">
+      <section className="bg-card px-5 py-16 md:py-24">
         <Reveal className="mx-auto max-w-7xl">
-          <h2 className="font-sans text-xs font-bold uppercase tracking-[0.16em] text-brand-gold">
-            What clients say
-          </h2>
+          <h2 className="eyebrow font-sans">What clients say</h2>
           <div className="mt-8 grid gap-x-12 gap-y-6 lg:grid-cols-[auto_1fr]">
             <svg
               aria-hidden
@@ -325,14 +397,14 @@ function AboutPage() {
               <path d="M0 36V21.6C0 9.2 6.6 1.9 19 0v7.4c-5.6 1.3-8.6 4.6-9 9.8h9V36H0Zm29 0V21.6C29 9.2 35.6 1.9 48 0v7.4c-5.6 1.3-8.6 4.6-9 9.8h9V36H29Z" />
             </svg>
             <figure>
-              <blockquote className="max-w-4xl font-display text-xl font-semibold leading-relaxed text-white md:text-2xl md:leading-relaxed">
+              <blockquote className="max-w-4xl font-display text-xl font-semibold leading-relaxed text-deep md:text-2xl md:leading-relaxed">
                 I've worked with Nisha for over 10 years. She combines strong technical skills with
                 something rarer: the ability to actually understand what the customer needs and
                 deliver it without fuss. Whether building housing systems or AI automation, she's
                 dependable, easy to work with, and always goes the extra mile.
               </blockquote>
-              <figcaption className="mt-6 text-sm text-secondary/70">
-                <span className="block text-base font-bold text-white">Christian Drejøe</span> CEO,
+              <figcaption className="mt-6 text-sm text-muted-foreground">
+                <span className="block text-base font-bold text-deep">Christian Drejøe</span> CEO,
                 Augrin Software ApS. Client of Aplica.
               </figcaption>
             </figure>
