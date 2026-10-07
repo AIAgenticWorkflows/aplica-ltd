@@ -62,7 +62,10 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const cyclingWords = ["Precision.", "Scale.", "Agility.", "Precision."];
+// The headline cycles through these words. A copy of the first one closes the
+// loop; it is drawn by CSS so that search snippets and screen readers get each
+// word once.
+const cyclingWords = ["Precision.", "Scale.", "Agility."];
 
 const stats = [
   { value: 20, suffix: " yrs", label: "Founder's industry experience", color: "text-brand-blue" },
@@ -197,14 +200,23 @@ function Index() {
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="max-w-3xl">
-            <span className="animate-rise eyebrow">Technology &amp; AI consultancy</span>
-            <h1 className="animate-rise mt-4 text-5xl font-extrabold leading-[1.08] text-deep md:text-7xl [animation-delay:0.08s]">
-              Engineering{" "}
-              <span className="text-cycle-window text-primary">
-                <span className="text-cycle-track">
-                  {cyclingWords.map((word, i) => (
-                    <span key={`${word}-${i}`}>{word}</span>
-                  ))}
+            <h1>
+              <span className="animate-rise eyebrow font-sans">
+                Technology &amp; AI consultancy<span className="sr-only">:</span>
+              </span>{" "}
+              <span className="animate-rise mt-4 block text-5xl font-extrabold leading-[1.08] text-deep md:text-7xl [animation-delay:0.08s]">
+                Engineering{" "}
+                <span className="text-cycle-window text-primary">
+                  <span className="text-cycle-track">
+                    {cyclingWords.map((word) => (
+                      <span key={word}>{word} </span>
+                    ))}
+                    <span
+                      aria-hidden
+                      data-word={cyclingWords[0]}
+                      className="after:content-[attr(data-word)]"
+                    />
+                  </span>
                 </span>
               </span>
             </h1>
@@ -266,11 +278,21 @@ function Index() {
             <p className="mt-10 text-center text-sm font-semibold uppercase tracking-widest text-secondary/50">
               Delivered in
             </p>
-            <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
-              {countries.map((c) => (
-                <span key={c} className="text-sm font-medium text-secondary/80">
-                  {c}
-                </span>
+            {/* The row moves. A second copy makes the loop seamless and is hidden
+                from screen readers, which read the list once. */}
+            <div className="marquee mx-auto mt-4 max-w-4xl">
+              {[false, true].map((isCopy) => (
+                <ul key={String(isCopy)} aria-hidden={isCopy} className="marquee-track">
+                  {countries.map((c) => (
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 text-sm font-semibold text-secondary/80 md:text-base"
+                    >
+                      <span aria-hidden className="h-1 w-1 rounded-full bg-brand-gold/70" />
+                      {c}
+                    </li>
+                  ))}
+                </ul>
               ))}
             </div>
           </Reveal>

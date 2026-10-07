@@ -15,3 +15,4 @@
 - [x] Drop the founded-and-relaunched timeline from the About page: the founding year stays as a single company fact, with no story section
 - [x] State the founding year only across the site: no "relaunched in 2024" in the homepage FAQ data or llms.txt
 - [x] About page: drop the "executive approval" fact (a CV line rather than a company fact)
+- [x] Homepage: the "Delivered in" countries move as a slow row (pauses on hover, stays still when motion is turned off), and the rotating headline word shows every word again
