@@ -17,13 +17,13 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Aplica is a technology and AI consultancy in Mauritius, founded in 2015 and relaunched in 2024. Our story, the experience behind our services and our values.",
+          "Aplica is a technology and AI consultancy in Mauritius, founded in 2015. The experience behind our services, what our clients say and the values that guide our work.",
       },
       { property: "og:title", content: pageTitle },
       {
         property: "og:description",
         content:
-          "Our story, the 20 years of experience behind our services in software engineering, product leadership and AI, and the values behind how we work.",
+          "The 20 years of experience behind our services in software engineering, product leadership and AI, what our clients say and the values behind how we work.",
       },
       { property: "og:url", content: "/about" },
       { property: "og:type", content: "website" },
@@ -82,36 +82,18 @@ export const Route = createFileRoute("/about")({
   }),
 });
 
-const chapters = [
-  {
-    year: "2015",
-    title: "Aplica starts in Mauritius",
-    body: "In our first chapter we built live housing systems for Copenhagen Business School and DTU, and delivered technical training to our Danish partners.",
-  },
-  {
-    year: "2017",
-    title: "Marketplaces at scale",
-    body: "Our founder spent nearly eight years building, and then leading product for, property marketplaces that serve over a million users a month.",
-  },
-  {
-    year: "2024",
-    title: "Aplica relaunches around AI",
-    body: "In November 2024 we came back with that experience behind us and a sharper focus: AI agents and automation that fit into real operations.",
-  },
-];
-
 // The headline facts about the experience behind the company.
 const highlights = [
-  { lead: "20 years", rest: "in software engineering, product management and AI" },
+  { lead: "Live housing systems", rest: "built for Copenhagen Business School and DTU" },
   {
     lead: "1M+ monthly users",
     rest: "and 3M+ sessions on platforms built and modernised",
   },
-  { lead: "Teams of up to 17", rest: "across product and engineering" },
   {
     lead: "Largest property marketplace",
     rest: "in three countries, with ownership of its product roadmap",
   },
+  { lead: "Teams of up to 17", rest: "across product and engineering" },
   { lead: "Executive approval", rest: "to advance an AI agent pitched to the C-suite" },
   { lead: "Conference speaker", rest: "on data privacy, AI agents and robotics" },
 ];
@@ -206,11 +188,15 @@ function AboutPage() {
               Mauritius, and everything we offer, from AI agents to product management to custom
               software, is built around your needs.
             </p>
+            <p className="animate-rise mt-8 max-w-2xl border-l-4 border-brand-gold pl-5 font-display text-lg font-semibold leading-snug text-deep [animation-delay:0.28s]">
+              Our approach is deliberate: build lean, experiment fast, and focus on problems that
+              actually matter.
+            </p>
           </div>
 
           <aside
             aria-labelledby="at-a-glance"
-            className="animate-rise rounded-2xl border border-border bg-card p-6 md:p-8 [animation-delay:0.28s]"
+            className="animate-rise rounded-2xl border border-border bg-card p-6 md:p-8 [animation-delay:0.38s]"
           >
             <h2
               id="at-a-glance"
@@ -219,7 +205,7 @@ function AboutPage() {
               At a glance
             </h2>
             <dl className="mt-3 divide-y divide-border">
-              <Fact term="Founded">2015, relaunched in 2024</Fact>
+              <Fact term="Founded">2015</Fact>
               <Fact term="Based in">Coromandel, Mauritius</Fact>
               <Fact term="Led by">Nisha Appanah, founder</Fact>
               <Fact term="Delivered in">8 countries across Europe, Africa and Asia</Fact>
@@ -228,38 +214,6 @@ function AboutPage() {
               </Fact>
             </dl>
           </aside>
-        </div>
-      </section>
-
-      {/* Story */}
-      <section className="bg-card px-5 py-14 md:py-20">
-        <div className="mx-auto max-w-7xl">
-          <Reveal>
-            <span className="eyebrow">Our story</span>
-            <h2 className="mt-3 max-w-2xl text-balance text-3xl font-bold text-deep md:text-4xl">
-              From university housing systems to AI agents
-            </h2>
-          </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {chapters.map((c, i) => (
-              <Reveal
-                key={c.year}
-                as="article"
-                delay={i * 90}
-                className="border-t-2 border-border pt-6"
-              >
-                <div className="font-display text-3xl font-extrabold text-primary">{c.year}</div>
-                <h3 className="mt-3 text-xl font-bold text-deep">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={270}>
-            <p className="mt-12 max-w-3xl border-l-4 border-brand-gold pl-5 font-display text-lg font-semibold leading-snug text-deep md:text-xl md:leading-snug">
-              Our approach is deliberate: build lean, experiment fast, and focus on problems that
-              actually matter.
-            </p>
-          </Reveal>
         </div>
       </section>
 
