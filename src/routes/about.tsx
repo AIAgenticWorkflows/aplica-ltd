@@ -151,7 +151,6 @@ const disciplines = [
     dot: "bg-brand-gold",
     points: [
       "AI agent built to automate responses to villa rental inquiries",
-      "AI consulting agreement with Cybernaptics Ltd",
       "Client discovery sessions that identify AI automation opportunities",
       "Rapid AI prototypes built with low-code tools",
     ],
