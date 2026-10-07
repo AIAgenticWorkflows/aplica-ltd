@@ -1,6 +1,11 @@
+# Every crawler is welcome on every page.
 User-agent: *
 Allow: /
 
+# AI assistants and AI search engines are listed by name, so there is no doubt
+# that they may read the site.
+
+# ChatGPT
 User-agent: GPTBot
 Allow: /
 
@@ -10,17 +15,45 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+# Claude
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: Claude-User
 Allow: /
 
+# Perplexity
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
+# Gemini
 User-agent: Google-Extended
 Allow: /
 
+# Apple Intelligence
 User-agent: Applebot-Extended
 Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Le Chat
+User-agent: MistralAI-User
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckAssistBot
+Allow: /
+
+# Common Crawl, a source for many AI models
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://www.aplica.biz/sitemap.xml

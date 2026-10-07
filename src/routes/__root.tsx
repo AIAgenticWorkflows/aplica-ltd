@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
+import { SOCIAL_IMAGE, organizationSchema, websiteSchema } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -78,16 +79,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aplica: AI Tools for Everyday Decisions" },
+      // Fallbacks: every page sets its own title and description.
+      { title: "Aplica: Technology and AI Consultancy in Mauritius" },
       {
         name: "description",
         content:
-          "Aplica builds custom solutions, built around your needs, starting with short term rentals, travel and services.",
+          "Aplica is a technology and AI consultancy in Mauritius, delivering AI agents and automation, product management and custom software built around your needs.",
       },
       { name: "author", content: "Aplica Ltd" },
       { property: "og:site_name", content: "Aplica" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_GB" },
+      { property: "og:image", content: SOCIAL_IMAGE.url },
+      { property: "og:image:width", content: SOCIAL_IMAGE.width },
+      { property: "og:image:height", content: SOCIAL_IMAGE.height },
+      { property: "og:image:alt", content: SOCIAL_IMAGE.alt },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: SOCIAL_IMAGE.url },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -102,17 +110,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       {
         type: "application/ld+json",
+        // On every page: who the company is, and which site this is.
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          "@id": "https://www.aplica.biz/#organization",
-          name: "Aplica Ltd",
-          alternateName: "Aplica",
-          url: "https://www.aplica.biz/",
-          logo: "https://www.aplica.biz/images/aplica-logo.png",
-          description:
-            "Aplica designs custom solutions, built around your needs, starting with short term rentals, travel and services.",
-          sameAs: ["https://www.linkedin.com/company/aplica-ltd/"],
+          "@graph": [organizationSchema, websiteSchema],
         }),
       },
     ],

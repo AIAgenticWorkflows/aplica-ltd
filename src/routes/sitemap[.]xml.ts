@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-
-// Sitemap entries must be full URLs, so this is the site's public address.
-const BASE_URL = "https://www.aplica.biz";
+import { SITE_URL } from "@/lib/site";
 
 interface SitemapEntry {
   path: string;
@@ -24,7 +22,8 @@ export const Route = createFileRoute("/sitemap.xml")({
         const urls = entries.map((e) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
+            // Sitemap entries must be full URLs.
+            `    <loc>${SITE_URL}${e.path}</loc>`,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
             `  </url>`,
