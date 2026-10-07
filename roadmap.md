@@ -10,4 +10,5 @@
 - [x] Remove "Speaking" from the Training service (Training only)
 - [x] Redesign contact form + Collaborate layout (contact details card, responsive on mobile)
 - [x] Drop the Home menu item (the logo links home) and rename Our Work to Our Services at /services, with /work redirecting
-- [x] Rebuild the About page: company story, founder profile and track record from nisha.aplica.biz, talks, credentials and values
+- [x] Rebuild the About page as a company page: facts at a glance, story, the experience behind our services, client testimonial and values
+- [x] Keep the About page corporate: the founder is named once, with no personal profile (no portrait, bio, talks, education or certifications)
