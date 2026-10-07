@@ -13,3 +13,4 @@
 - [x] Rebuild the About page as a company page: facts at a glance, story, the experience behind our services, client testimonial and values
 - [x] Keep the About page corporate: founder photo plus high-level experience that gives Aplica credibility, with no CV-level detail (no personal bio, talk list, education, certifications or employer names)
 - [x] Drop the founded-and-relaunched timeline from the About page: the founding year stays as a single company fact, with no story section
+- [x] State the founding year only across the site: no "relaunched in 2024" in the homepage FAQ data or llms.txt

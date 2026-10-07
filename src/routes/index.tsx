@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
               name: "What does Aplica do?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Aplica is a technology consultancy founded in 2015 and relaunched in 2024. We deliver AI agents and automation, product management, custom software engineering, platform migration and rapid prototyping, drawing on our founder's 20 years of experience in software engineering, product leadership and applied AI.",
+                text: "Aplica is a technology consultancy founded in 2015. We deliver AI agents and automation, product management, custom software engineering, platform migration and rapid prototyping, drawing on our founder's 20 years of experience in software engineering, product leadership and applied AI.",
               },
             },
             {
