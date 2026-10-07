@@ -10,8 +10,12 @@ We have delivered solutions in eight countries: Denmark, Romania, Kenya, Senegal
 
 - [Home](/): Services, industries served and the experience behind Aplica.
 - [Our Services](/services): The full service range, covering AI agents & automation, product management, software engineering, platform migration, rapid prototyping and training.
-- [About](/about): Company story, values and long-term vision.
+- [About](/about): Company story, founder profile and track record, conference talks, credentials and values.
 - [Collaborate](/collaborate): Contact form, phone, address and LinkedIn.
+
+## Founder
+
+Aplica was founded by Nisha Appanah, who has 20 years of experience across software engineering, product management and AI, and speaks at conferences on data privacy, AI agents and robotics. Her profile and track record are on the [About](/about) page.
 
 ## Contact
 
