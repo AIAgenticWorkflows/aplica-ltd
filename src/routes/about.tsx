@@ -94,7 +94,6 @@ const highlights = [
     rest: "in three countries, with ownership of its product roadmap",
   },
   { lead: "Teams of up to 17", rest: "across product and engineering" },
-  { lead: "Executive approval", rest: "to advance an AI agent pitched to the C-suite" },
   { lead: "Conference speaker", rest: "on data privacy, AI agents and robotics" },
 ];
 
@@ -277,7 +276,7 @@ function AboutPage() {
               {highlights.map((h) => (
                 <li
                   key={h.lead}
-                  className="border-t border-white/10 py-4 text-sm leading-relaxed text-secondary/80"
+                  className="border-t border-white/10 py-4 text-sm leading-relaxed text-secondary/80 sm:last:odd:col-span-2"
                 >
                   <span className="font-bold text-white">{h.lead}</span> {h.rest}
                 </li>
