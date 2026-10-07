@@ -2,9 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import logo from "@/assets/aplica-logo.png";
 
+// No "Home" entry: the logo is the way home, in the header and the footer.
 const nav = [
-  { to: "/", label: "Home" },
-  { to: "/work", label: "Our Work" },
+  { to: "/services", label: "Our Services" },
   { to: "/about", label: "About" },
 ] as const;
 
@@ -17,15 +17,22 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-card/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:h-20 md:py-0">
-          <Link to="/" className="flex items-center gap-3" aria-label="Aplica home">
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className="group flex items-center gap-3"
+            aria-label="Aplica home"
+          >
             <img
               src={logo}
               alt="Aplica logo"
               width={44}
               height={44}
-              className="h-10 w-10 md:h-11 md:w-11"
+              className="h-10 w-10 transition-transform duration-300 group-hover:scale-110 md:h-11 md:w-11"
             />
-            <span className="font-display text-2xl font-bold tracking-tight text-deep">APLICA</span>
+            <span className="font-display text-2xl font-bold tracking-tight text-deep transition-colors group-hover:text-primary">
+              APLICA
+            </span>
           </Link>
 
           <nav
@@ -36,7 +43,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <Link
                 key={item.to}
                 to={item.to}
-                activeOptions={{ exact: item.to === "/" }}
                 className="border-b-2 border-transparent pb-1 text-deep transition-colors hover:text-primary [&.active]:border-primary [&.active]:text-primary"
               >
                 {item.label}
@@ -84,10 +90,16 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <footer className="mt-16 bg-deep text-secondary md:mt-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:grid-cols-3 md:py-16">
           <div>
-            <div className="flex items-center gap-3">
-              <img src={logo} alt="" width={36} height={36} className="h-9 w-9" />
+            <Link to="/" className="group inline-flex items-center gap-3" aria-label="Aplica home">
+              <img
+                src={logo}
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 transition-transform duration-300 group-hover:scale-110"
+              />
               <span className="font-display text-xl font-bold text-white">APLICA</span>
-            </div>
+            </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-secondary/70">
               A multi-service technology firm delivering product, engineering and AI capability to
               organisations that need it done properly.
@@ -128,9 +140,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                   +230 5942 0144
                 </a>
               </li>
-              <li className="text-secondary/70">
-                15, Issackhan Lane, Coromandel
-              </li>
+              <li className="text-secondary/70">15, Issackhan Lane, Coromandel</li>
               <li>
                 <Link to="/collaborate" className="transition-colors hover:text-white">
                   Work with us

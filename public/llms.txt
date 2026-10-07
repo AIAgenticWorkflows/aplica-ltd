@@ -9,7 +9,7 @@ We have delivered solutions in eight countries: Denmark, Romania, Kenya, Senegal
 ## Pages
 
 - [Home](/): Services, industries served and the experience behind Aplica.
-- [Our Work](/work): Full service range — AI agents & automation, product management, software engineering, platform migration, rapid prototyping and training.
+- [Our Services](/services): The full service range, covering AI agents & automation, product management, software engineering, platform migration, rapid prototyping and training.
 - [About](/about): Company story, values and long-term vision.
 - [Collaborate](/collaborate): Contact form, phone, address and LinkedIn.
 

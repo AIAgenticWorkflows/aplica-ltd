@@ -214,7 +214,7 @@ function Index() {
               applied AI, we help you solve problems faster and create new opportunities.
             </p>
             <div className="animate-rise mt-8 flex flex-wrap gap-4 [animation-delay:0.28s]">
-              <Link to="/work" className="btn-primary">
+              <Link to="/services" className="btn-primary">
                 Explore our services
               </Link>
               <Link to="/collaborate" className="btn-secondary">
@@ -292,7 +292,7 @@ function Index() {
               </p>
             </div>
             <Link
-              to="/work"
+              to="/services"
               className="shrink-0 border-b-2 border-primary pb-1 font-bold text-primary transition-colors hover:border-deep hover:text-deep"
             >
               View all services
