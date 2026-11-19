@@ -409,6 +409,27 @@ function Index() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal delay={200}>
+            <article className="mt-10 flex flex-col gap-6 rounded-2xl bg-deep p-8 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-2xl">
+                <span className="eyebrow">Featured project</span>
+                <h3 className="mt-2 text-2xl font-bold text-white">
+                  <a href="https://www.luxoravilla.com/" className="hover:underline">
+                    Luxora Villa, a private pool villa in Grand Baie, Mauritius
+                  </a>
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-secondary/70">
+                  Our live testbed for short term rentals: a bilingual direct booking website built
+                  to be found by search engines and AI assistants, plus AI agents for marketing and
+                  occupancy.
+                </p>
+              </div>
+              <Link to="/projects/luxora-villa" className="btn-primary shrink-0">
+                See the project
+              </Link>
+            </article>
+          </Reveal>
         </div>
       </section>
 
