@@ -425,9 +425,9 @@ function Index() {
                   occupancy.
                 </p>
               </div>
-              <Link to="/projects/luxora-villa" className="btn-primary shrink-0">
-                See the project
-              </Link>
+              <a href="https://www.luxoravilla.com/" className="btn-primary shrink-0">
+                Visit luxoravilla.com
+              </a>
             </article>
           </Reveal>
         </div>

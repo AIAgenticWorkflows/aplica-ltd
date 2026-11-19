@@ -25,7 +25,6 @@ Ways of working: a client discovery session that maps operations and ends with a
 - [Our Services](https://www.aplica.biz/services): The full service range, ways of working and sectors served.
 - [About](https://www.aplica.biz/about): Company facts, the founder's experience behind the services, a client testimonial and the company's values.
 - [Collaborate](https://www.aplica.biz/collaborate): Contact form, phone, address and LinkedIn.
-- [Luxora Villa project](https://www.aplica.biz/projects/luxora-villa): How Aplica uses AI to market Luxora Villa (https://www.luxoravilla.com), a private pool holiday villa in Grand Baie, Mauritius, as a live testbed for short term rental tools.
 
 ## Contact
 

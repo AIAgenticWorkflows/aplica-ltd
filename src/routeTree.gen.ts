@@ -15,7 +15,6 @@ import { Route as CollaborateRouteImport } from './routes/collaborate'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as WorkRouteImport } from './routes/work'
-import { Route as ProjectsLuxoraVillaRouteImport } from './routes/projects.luxora-villa'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -47,11 +46,6 @@ const WorkRoute = WorkRouteImport.update({
   path: '/work',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsLuxoraVillaRoute = ProjectsLuxoraVillaRouteImport.update({
-  id: '/projects/luxora-villa',
-  path: '/projects/luxora-villa',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,7 +54,6 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work': typeof WorkRoute
-  '/projects/luxora-villa': typeof ProjectsLuxoraVillaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +62,6 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work': typeof WorkRoute
-  '/projects/luxora-villa': typeof ProjectsLuxoraVillaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +71,6 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work': typeof WorkRoute
-  '/projects/luxora-villa': typeof ProjectsLuxoraVillaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,9 +81,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/work'
-    | '/projects/luxora-villa'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/collaborate' | '/services' | '/sitemap.xml' | '/work' | '/projects/luxora-villa'
+  to: '/' | '/about' | '/collaborate' | '/services' | '/sitemap.xml' | '/work'
   id:
     | '__root__'
     | '/'
@@ -101,7 +91,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/work'
-    | '/projects/luxora-villa'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -111,7 +100,6 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WorkRoute: typeof WorkRoute
-  ProjectsLuxoraVillaRoute: typeof ProjectsLuxoraVillaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -158,13 +146,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects/luxora-villa': {
-      id: '/projects/luxora-villa'
-      path: '/projects/luxora-villa'
-      fullPath: '/projects/luxora-villa'
-      preLoaderRoute: typeof ProjectsLuxoraVillaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -175,7 +156,6 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WorkRoute: WorkRoute,
-  ProjectsLuxoraVillaRoute: ProjectsLuxoraVillaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
